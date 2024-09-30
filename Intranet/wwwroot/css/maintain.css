@@ -1,0 +1,342 @@
+﻿.table th {
+    color: var(--color7);
+    background: var(--color7);
+    font-weight: normal;
+}
+
+.Maintain {
+    border-radius: 25px;
+    background-color: var(--colorwhite);
+    
+}
+
+.btnMaintain {
+    color: var(--color7);
+    font-size: 18px;
+    background-color: var(--colorwhite);
+    border-radius: 25px;
+}
+    .btnMaintain:focus {
+        outline: 0;
+    }
+
+    .btnMaintain:hover, .btnMaintain.active {
+        color: var(--color7);
+        font-size: 18px;
+        background-color: var(--colorwhite);
+        border-radius: 25px;
+    }
+
+.btnMaintainIcon .i {
+    font-size: 20px;
+}
+
+.btnArrowMaintain {
+    font-size:20px;
+}
+
+.cardMaintain {
+    color: var(--color7);
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--color7);
+    border-width: 1px;
+    border-radius: 25px;
+}
+
+    .cardMaintain:hover, .cardMaintain:active:focus, .cardMaintain:active:hover {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color7);
+        border-color: var(--nonecolor);
+        border-radius: 25px;
+    }
+
+
+
+/*********** modal maitain ***********/
+
+.maintainmodal div.modal-dialog div.modal-content {
+    border-radius: 25px 25px 25px 25px;
+    background-color: var(--colorwhite);
+}
+
+.titlemaintainmodal {
+    color: var(--colorblack);
+    font-size: 20px;
+}
+
+.labelmaintainmodal {
+    color: var(--color7);
+    font-size: 18px;
+}
+
+.fromtodatemaintainmodal {
+    font-size: 16px;
+    background-color: var(--color0);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    cursor: text;
+    padding: 0.75rem;
+}
+
+    .fromtodatemaintainmodal:focus, .fromtodatemaintainmodal:hover {
+        font-size: 16px;
+        background-color: var(--colorwhite);
+        border-color: var(--color7);
+        border-radius: 15px;
+        cursor: text;
+        padding: 0.75rem;
+    }
+
+.inputmaintainmodal {
+    font-size: 16px;
+    border-radius: 15px;
+    color: var(--color7);
+    background-color: var(--colorwhite);
+    cursor: text;
+}
+
+    .inputmaintainmodal:focus, .inputmaintainmodal:hover {
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: text;
+        color: var(--color7);
+        background-color: var(--colorwhite);
+        border-color: var(--color7);
+        box-shadow: none;
+    }
+
+.selectmaintainmodal {
+    font-size: 16px;
+    color: var(--color7);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23272727' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+    .selectmaintainmodal:focus, .selectmaintainmodal:hover {
+        font-size: 16px;
+        color: var(--color7);
+        background-color: var(--colorwhite);
+        border-radius: 15px;
+        cursor: pointer;
+        border-color: var(--color7);
+        box-shadow: none;
+    }
+
+
+.closemaintainmodal {
+    color: var(--color10);
+    -webkit-text-stroke: 0.5px var(--color10);
+    font-size: 20px;
+    background-color: var(--color8);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.closemaintainmodal:hover, .closemaintainmodal:active:hover, .closemaintainmodal:active:focus {
+    color: var(--color10);
+    -webkit-text-stroke: 0.5px var(--color10);
+    font-size: 20px;
+    background-color: var(--color9);
+    border-color: var(--nonecolor);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btnaddmaintainmodal {
+    color: var(--color7);
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border: 2px dashed var(--color7);
+    border-radius: 25px;
+    width: 100%;
+}
+
+    .btnaddmaintainmodal:focus, .btnaddmaintainmodal:hover, .btnaddmaintainmodal:active:hover, .btnaddmaintainmodal:active:focus {
+        color: var(--color7);
+        font-size: 16px;
+        background-color: var(--colorwhite);
+        border: 2px dashed var(--color7);
+        border-radius: 25px;
+        width: 100%;
+    }
+
+.btncancelmaintainmodal {
+    background-color: var(--color7);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btncancelmaintainmodal:hover, .btncancelmaintainmodal:active:hover, .btncancelmaintainmodal:active:focus {
+        background-color: var(--color7);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--nonecolor);
+    }
+
+.btnmaintainmodal {
+    background-color: var(--color12);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btnmaintainmodal:hover, .btnmaintainmodal:active:hover, .btnmaintainmodal:active:focus {
+        background-color: var(--color13);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--nonecolor);
+    }
+
+.searchiconmaintain {
+    color: var(--color7);
+}
+
+.searchmaintain {
+    color: var(--colorgray);
+    font-size: 16px;
+    text-indent: 40px;
+    background-color: var(--color0);
+    border-color: var(--color0);
+    padding: 0.75rem;
+    margin-top: -1px;
+    margin-bottom: -1px;
+}
+
+    .searchmaintain:focus, .searchmaintain:hover {
+        color: var(--colorgray);
+        font-size: 16px;
+        text-indent: 40px;
+        background-color: var(--color0);
+        border-color: var(--color0);
+        padding: 0.75rem;
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+.tablemaintain {
+    /*border-collapse: separate;*/
+    white-space: nowrap;
+}
+
+
+.tableheadlabelmaintain {
+    color: var(--colorwhite);
+    font-size: 16px;
+}
+
+.tablelabelmaintain {
+    color: var(--color7);
+    font-size: 16px;
+}
+
+
+.tablemorelabelmaintain {
+    color: var(--color7);
+    font-size: 26px;
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+    border-radius: 25px;
+}
+
+    .tablemorelabelmaintain:focus, .tablemorelabelmaintain:hover, .tablemorelabelmaintain.show, .tablemorelabelmaintain:active:hover, .tablemorelabelmaintain:active:focus {
+        color: var(--color7);
+        font-size: 26px;
+        background-color: var(--color0);
+        border-color: var(--nonecolor);
+        border-radius: 25px;
+    }        
+
+
+.tabledropdowneditlabelmaintain {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .tabledropdowneditlabelmaintain:focus, .tabledropdowneditlabelmaintain:hover {
+        color: var(--colorblack);
+        font-size: 16px;
+        background-color: var(--color0);
+    }
+
+
+.tabledropdowndeletelabelmaintain {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .tabledropdowndeletelabelmaintain:focus, .tabledropdowndeletelabelmaintain:hover {
+        color: var(--colorblack);
+        font-size: 16px;
+        background-color: var(--color0);
+    }
+
+.icondeletemaintainmodal {
+    color: var(--color78);
+    font-size: 100px;
+}
+
+.iconerrormaintainmodal {
+    color: var(--color78);
+    font-size: 100px;
+}
+
+.labelerrormaintain {
+    color: var(--color78);
+    font-size: 20px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--colorblack);
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--color12);
+    border-color: var(--color12);
+}
+
+
+.form-switch .form-check-input:focus:checked {
+    background-color: var(--color12);
+    border-color: var(--color12);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:focus {
+    box-shadow: none;
+    border-color: #adb5bd;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23adb5bd'/%3e%3c/svg%3e");
+}
+
+
+.radiomaintain {
+    background-color: var(--color7);
+    border-radius: 25px;
+    width: max-content;
+}
+
+.btn.radiomaintainlabel {
+    color: var(--colorwhite);
+    width: 100px;
+    border-radius: 25px;
+}
+
+    .btn.radiomaintainlabel:hover {
+        color: var(--colorwhite);
+    }
+
+.btn-check:checked + .btn {
+    color: var(--colorwhite);
+    background-color: var(--color30);
+    border-color: var(--nonecolor);
+    box-shadow: none;
+}

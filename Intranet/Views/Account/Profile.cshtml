@@ -1,0 +1,542 @@
+﻿@model Intranet.ViewModels.ProfileVieweModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+@{
+    foreach (var item in Model.UserRoleViewModelsList)
+    {
+        @*--**********EditProfileModal**********--*@
+        <div class="modal fade profilemodal" id="EditProfileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header ps-0">
+                        <label class="modal-title fw-bold titleprofilemodal">แก้ไขบัญชีผู้ใช้</label>
+                        <button type="button" class="btn fw-bold closeprofilemodal" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-circle"></i></button>
+                    </div>
+                    <form asp-action="EditProfile" enctype="multipart/form-data">
+                        <div class="modal-body ps-0 pe-0">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <label class="labelprofilemodal fw-bold">รูปภาพพื้นหลังผู้ใช้</label>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <div class="dropdown end-0 me-3 mt-3 position-absolute">
+                                        <button class="btn moreimageprofile" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-camera"></i></button>
+                                        <ul class="dropdown-menu shadow-sm moreavatarbackgroundprofile">
+                                            <li>
+                                                <a class="dropdown-item clickavatarbackgroundprofile" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="bi bi-paint-bucket"></i>&nbsp;&nbsp;เลือกสีพื้นหลัง</a>
+                                                <ul class="dropdown-menu dropdown-menu-end shadow dropdownavatarbackgroundprofile p-0 overflow-auto">
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdownchooseprofile BtnChooseDeviceProfile" href="#" id="EditChooseBgUserProfile"><i class="bi bi-pc-display"></i>&nbsp;&nbsp;เลือกรูปภาพพื้นหลังจากเครื่อง</a>
+                                                <input class="form-control p-2 mt-3 d-none inputdateprofilemodal" asp-for="UserRoleViewModel.BgUser" id="EditBgUserProfile" name="bguser" type="file" onchange="previewBgUserProfile()" accept=".gif,.jpg,.jpeg,.png" />
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdowndeleteprofile BtnDeleteImageUserProfile" href="#" onclick="clearBgUserProfile()"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบรูปภาพพื้นหลัง</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    @if (item.BgUser != null)
+                                    {
+                                        <img class="backgroundprofile" id="previewbackgrounduserprofile" src="@Url.Content("~/Image/users/background/" + item.BgUser)" />
+                                    }
+                                    else
+                                    {
+                                        <img class="backgroundprofile" id="previewbackgrounduserprofile" src="@Url.Content("~/Image/users/background/" + "BgUser_None.jpg")" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <label class="labelprofilemodal fw-bold">รูปภาพผู้ใช้</label>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col text-center">
+                                    @if (item.ImageUser != null)
+                                    {
+                                        <img class="imgprofilemodal" id="previewimageuserprofile" src="@Url.Content("~/Image/users/profile/" + item.ImageUser)" />
+                                    }
+                                    else
+                                    {
+                                        <img class="imgprofilemodal" id="previewimageuserprofile" src="@Url.Content("~/Image/users/profile/" + "ProfileUser_None.jpg")" />
+                                    }
+                                </div>
+                                <div class="col text-center align-self-center">
+                                    <div class="dropdown">
+                                        <button class="btn moreimageprofile" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-camera"></i></button>
+                                        <ul class="dropdown-menu shadow-sm moreavatarimgprofile">
+                                            <li>
+                                                <a class="dropdown-item clickavatarimgprofile" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="bi bi-person-circle"></i>&nbsp;&nbsp;เลือกรูปภาพอวาต้า</a>
+                                                <ul class="dropdown-menu dropdown-menu-end shadow dropdownavatarimgprofile p-0 overflow-auto">
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdownchooseprofile BtnChooseDeviceProfile" href="#" id="EditChooseImageUserProfile"><i class="bi bi-pc-display"></i>&nbsp;&nbsp;เลือกรูปภาพจากเครื่อง</a>
+                                                <input class="form-control p-2 mt-3 d-none inputdateprofilemodal" asp-for="UserRoleViewModel.ImageUser" id="EditImageUserProfile" name="imageuser" onchange="previewImageUserProfile()" type="file" accept=".gif,.jpg,.jpeg,.png" />
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdowndeleteprofile BtnDeleteImageUserProfile" href="#" onclick="clearImageUserProfile()"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบรูปภาพ</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">อีเมลผู้ใช้</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.UserName" id="EditUserNameProfile" type="email" placeholder="กรุณาใส่อีเมล" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">รหัสพนักงาน</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.EmployeeId" id="EditEmpolyeeIdProfile" type="text" placeholder="กรุณาใส่รหัสพนักงาน" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">ชื่อ ภาษาอังกฤษ</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.FirstNameEN" id="EditFirstNameENProfile" type="text" placeholder="กรุณาใส่ชื่อ ภาษาอังกฤษ" required>
+                                    </div>
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">นามสกุล ภาษาอังกฤษ</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.LastNameEN" id="EditLastNameENProfile" type="text" placeholder="กรุณาใส่นามสกุล ภาษาอังกฤษ" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">ชื่อ ภาษาไทย</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.FirstNameTH" id="EditFirstNameTHProfile" type="text" placeholder="กรุณาใส่ชื่อ ภาษาไทย" required>
+                                    </div>
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">นามสกุล ภาษาไทย</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.LastNameTH" id="EditLastNameTHProfile" type="text" placeholder="กรุณาใส่นามสกุล ภาษาไทย" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">ชื่อเล่น</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.NickName" id="EditNickNameProfile" type="text" placeholder="กรุณาใส่ชื่อเล่น">
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">เบอร์โทรศัพท์ภายใน</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.InternalPhoneNumber" id="EditInternalPhoneNumberProfile" type="text" placeholder="กรุณาใส่เบอร์โทรศัพท์ภายใน">
+                                    </div>
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">เบอร์โทรศัพท์</label>
+                                        <input class="form-control p-2 mt-3 d-block inputdateprofilemodal" asp-for="UserRoleViewModel.PhoneNumber" id="EditPhoneNumberProfile" type="text" placeholder="กรุณาใส่เบอร์โทรศัพท์">
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label class="labelprofilemodal fw-bold">ฝ่าย 1</label>
+                                        <select asp-items="ViewBag.Department1sList" id="EditDepartment1Profile" class="form-select p-2 mt-3 selectprofilemodal SelectEditDepartment1Profile" aria-label="Default select example" required>
+                                            <option value="">เลือกฝ่าย 1</option>
+                                        </select>
+                                    </div>
+                                    <div class="col SelectEditDepartment2Profile" hidden>
+                                        <label class="labelprofilemodal fw-bold">ฝ่าย 2</label>
+                                        <select asp-items="ViewBag.Department2sList" id="EditDepartment2Profile" class="form-select p-2 mt-3 selectprofilemodal" aria-label="Default select example" required disabled>
+                                            <option value="">เลือกฝ่าย 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-3 SelectEditSectionProfile" hidden>
+                                    <label class="labelprofilemodal fw-bold">แผนก</label>
+                                    <select asp-items="ViewBag.SectionsList" id="EditSectionProfile" class="form-select p-2 mt-3 selectprofilemodal" aria-label="Default select example" required>
+                                        <option value="">เลือกแผนก</option>
+                                    </select>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col SelectEditShopProfile" hidden>
+                                        <label class="labelprofilemodal fw-bold">สาขา</label>
+                                        <select asp-items="ViewBag.Form1RequirementsList" id="EditShopProfile" asp-for="UserRoleViewModel.ShopId" class="form-select p-2 mt-3 selectprofilemodal" aria-label="Default select example" required>
+                                            <option value="">เลือกสาขา</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col SelectEditPositionProfile" hidden>
+                                        <label class="labelprofilemodal fw-bold">ตำแหน่ง</label>
+                                        <select asp-items="ViewBag.SectionsPositionList" id="EditPositionProfile" asp-for="UserRoleViewModel.PositionId" class="form-select p-2 mt-3 selectprofilemodal" aria-label="Default select example" required>
+                                            <option value="">เลือกตำแหน่ง</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="labelprofilemodal fw-bold">สิทธิ์</label>
+                                    <select asp-items="Model.SelectRoles" id="EditRoleProfile" asp-for="UserRoleViewModel.NewRole" class="form-select p-2 mt-3 selectprofilemodal" aria-label="Default select example" required>
+                                        <option value="">เลือกสิทธิ์</option>
+                                    </select>
+                                </div>
+                            }
+                        </div>
+                        <div class="text-end mt-2">
+                            <button class="btn p-2 ms-2 btncancelprofilemodal" type="button" data-bs-dismiss="modal">ยกเลิก</button>
+                            <button class="btn p-2 ms-2 btnprofilemodal btnformcreateformusermanage" type="submit">บันทึก</button>
+                            <input type="hidden" name="id" id="EditProfileId" />
+                            <input type="hidden" name="valueimageuser" id="EditValueImageUser" />
+                            <input type="hidden" name="valueavatarimageuser" id="EditValueAvatarImageUser" />
+                            <input type="hidden" name="valuebguser" id="EditValueBgUser" />
+                            <input type="hidden" name="valueavatarbguser" id="EditValueAvatarBgUser" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        @*--**********DeleteProfileModal**********--*@
+        <div class="modal fade profilemodal" id="DeleteProfileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content p-3">
+                    <div class="modal-header ps-0">
+                        <label class="modal-title fw-bold titleprofilemodal">ลบบัญชีผู้ใช้</label>
+                        <button type="button" class="btn fw-bold closeprofilemodal" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-circle"></i></button>
+                    </div>
+                    <form asp-action="DeleteProfile" enctype="multipart/form-data">
+                        <div class="modal-body ps-0 pe-0">
+                            <div class="mt-3 text-center">
+                                <i class="bi bi-trash iconprofilemodal"></i>
+                            </div>
+                            <div class="mt-0 text-center">
+                                <label class="labelheadprofilemodal fw-bold" id="DeleteProfileLabel"></label>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <label class="labeldetailprofilemodal">คุณต้องการลบบัญชีผู้ใช้ใช่หรือไม่</label>
+                            </div>
+
+                        </div>
+                        <div class="text-center mt-2">
+                            <button class="btn p-2 ms-2 btncancelprofilemodal" type="button" data-bs-dismiss="modal">ยกเลิก</button>
+                            <button class="btn p-2 ms-2 btnprofilemodal btnformcreateformusermanage" type="submit">ตกลง</button>
+                            <input type="hidden" name="id" id="DeleteProfileId" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card cardprofile">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        @if (ViewBag.UserId == item.Id && item.Active == true || User.IsInRole("Admin") && item.Active == true)
+                        {
+                            <div class="dropdown end-0 me-4 mt-2 position-absolute">
+                                <button class="btn moreprofile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                    <li>
+                                        <a class="dropdown-item dropdowneditprofile BtnEditProfile" href="#" data-bs-toggle="modal" data-bs-target="#EditProfileModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                        <input type="hidden" id="id" value="@item.Id">
+                                        <input type="hidden" id="profileusername" value="@item.UserName">
+                                        <input type="hidden" id="profileimageuser" value="@item.ImageUser">
+                                        <input type="hidden" id="profilebguser" value="@item.BgUser">
+                                        <input type="hidden" id="profilefirstnameEN" value="@item.FirstNameEN">
+                                        <input type="hidden" id="profilelastnameEN" value="@item.LastNameEN">
+                                        <input type="hidden" id="profilefirstnameTH" value="@item.FirstNameTH">
+                                        <input type="hidden" id="profilelastnameTH" value="@item.LastNameTH">
+                                        <input type="hidden" id="profilenickname" value="@item.NickName">
+                                        <input type="hidden" id="profileemployeeid" value="@item.EmployeeId">
+                                        <input type="hidden" id="profileinternalphonenumber" value="@item.InternalPhoneNumber">
+                                        <input type="hidden" id="profilephonenumber" value="@item.PhoneNumber">
+                                        @if (item.Position != null)
+                                        {
+                                            <input type="hidden" id="profiledepartment1id" value="@item.Position.Section.Department1Id">
+                                            <input type="hidden" id="profiledepartment2id" value="@item.Position.Section.Department2Id">
+                                            <input type="hidden" id="profilesectionid" value="@item.Position.SectionId">
+                                        }
+                                        <input type="hidden" id="profileshopid" value="@item.ShopId">
+                                        <input type="hidden" id="profilepositionid" value="@item.PositionId">
+                                        @if (item.Roles != null)
+                                        {
+                                            <input type="hidden" id="profilerole" value="@string.Join(",",item.Roles.ToList())">
+                                        }
+                                    </li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item dropdowndeleteprofile BtnDeleteProfile" href="#" data-bs-toggle="modal" data-bs-target="#DeleteProfileModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบบัญชีผู้ใช้</a>
+                                            <input type="hidden" id="id" value="@item.Id">
+                                            <input type="hidden" id="profilefirstnameTH" value="@item.FirstNameTH">
+                                            <input type="hidden" id="profilelastnameTH" value="@item.LastNameTH">
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                        else if (User.IsInRole("Admin") && item.Active == false)
+                        {
+                            <div class="dropdown end-0 me-4 mt-2 position-absolute">
+                                <button class="btn moreprofile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                    <li>
+                                        <a class="dropdown-item dropdownextendprofile BtnExtendProfile" href="#" data-bs-toggle="modal" data-bs-target="#ExtendProfileModal"><i class="bi bi-person-gear"></i>&nbsp;&nbsp;ขยายสิทธิ์บัญชีผู้ใช้</a>
+                                        <input type="hidden" id="id" value="@item.Id">
+                                        <input type="hidden" id="profilefirstnameTH" value="@item.FirstNameTH">
+                                        <input type="hidden" id="profilelastnameTH" value="@item.LastNameTH">
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col">
+                                @if (item.BgUser != null)
+                                {
+                                    <img class="backgroundprofile" src="@Url.Content("~/Image/users/background/" + item.BgUser)" />
+                                }
+                                else
+                                {
+                                    <img class="backgroundprofile" src="@Url.Content("~/Image/users/background/" + "BgUser_None.jpg")" />
+                                }
+                            </div>
+                        </div>
+                        <div class="row topprofile" style="margin-top:-10%">
+                            <div class="col text-start d-flex align-items-end">
+                                @if (item.ImageUser != null)
+                                {
+                                    <img class="ms-4 ms-sm-5 imgprofile" src="@Url.Content("~/Image/users/profile/" + item.ImageUser)" />
+                                }
+                                else
+                                {
+                                    <img class="ms-4 ms-sm-5 imgprofile" src="@Url.Content("~/Image/users/profile/" + "ProfileUser_None.jpg")" />
+                                }
+                                <div class="ms-3 mb-1">
+                                    <label class="labelhead1profile text-nowrap fw-bold">@item.FirstNameEN @item.LastNameEN</label>
+                                    @if (item.NickName != null)
+                                    {
+                                        var nickname = " (" + item.NickName + ")";
+                                        <label class="labelhead2profile text-nowrap d-block fw-bold">@item.FirstNameTH @item.LastNameTH @nickname</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelhead2profile text-nowrap d-block fw-bold">@item.FirstNameTH @item.LastNameTH</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-4 ms-0 me-0 ms-sm-5 me-sm-5">
+                            <div class="col p-0 align-items-center">
+                                <button class="p-0 d-flex btncollapseprofile" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescriptionProfile" aria-expanded="true">
+                                    <div class="position-relative m-0 me-4">
+                                        <span class="position-absolute btnArrowDescriptionProfile">
+                                            <i class="bi bi-caret-right-fill iconArrowProfile"></i>
+                                        </span>
+                                    </div>
+                                    <div class="ms-2">
+                                        <span class="fw-bold text-nowrap">ข้อมูลส่วนตัว</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collapse multi-collapse ms-0 me-0 ms-sm-5 me-sm-5" id="collapseDescriptionProfile" style="overflow:auto">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">อีเมล</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.UserName != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@item.UserName</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">รหัสพนักงาน</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.EmployeeId != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@item.EmployeeId</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">สถานที่ทำงาน</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.Position != null)
+                                    {
+                                        if (item.Position.Section.Department1 != null)
+                                        {
+                                            <label class="labelprofile text-nowrap">@item.Position.Section.Department1.Location.Name</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="labelprofile text-nowrap">-</label>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">ฝ่าย 1</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.Position != null)
+                                    {
+                                        if (item.Position.Section.Department1 != null)
+                                        {
+                                            <label class="labelprofile text-nowrap">@item.Position.Section.Department1.Name</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="labelprofile text-nowrap">-</label>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            @if (item.Position != null)
+                            {
+                                if (item.Position.Section.Department2 != null)
+                                {
+                                    <div class="row mt-3">
+                                        <div class="col-6">
+                                            <label class="labelsubheadprofile fw-bold text-nowrap">ฝ่าย 2</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="labelprofile text-nowrap">@item.Position.Section.Department2.Name</label>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                }
+                            }
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">แผนก</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.Position != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@item.Position.Section.Name</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            @if (item.Shop != null)
+                            {
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <label class="labelsubheadprofile fw-bold text-nowrap">สาขา</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="labelprofile text-nowrap">@item.Shop.Branch : @item.Shop.Name</label>
+                                    </div>
+                                </div>
+                            }
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">ตำแหน่ง</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.Position != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@item.Position.Name</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">เบอร์โทรศัพท์ภายใน</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.InternalPhoneNumber != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@item.InternalPhoneNumber</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">เบอร์โทรศัพท์</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.PhoneNumber != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@item.PhoneNumber</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-4 ms-0 me-0 ms-sm-5 me-sm-5">
+                            <div class="col p-0 align-items-center">
+                                <button class="p-0 d-flex btncollapseprofile" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRoleProfile" aria-expanded="true">
+                                    <div class="position-relative m-0 me-4">
+                                        <span class="position-absolute btnArrowRoleProfile">
+                                            <i class="bi bi-caret-right-fill iconArrowProfile"></i>
+                                        </span>
+                                    </div>
+                                    <div class="ms-2">
+                                        <span class="fw-bold text-nowrap">สิทธิ์</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collapse multi-collapse ms-0 me-0 ms-sm-5 me-sm-5" id="collapseRoleProfile" style="overflow:auto">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="labelsubheadprofile fw-bold text-nowrap">สิทธิ์</label>
+                                </div>
+                                <div class="col-6">
+                                    @if (item.Roles != null)
+                                    {
+                                        <label class="labelprofile text-nowrap">@string.Join(",",item.Roles.ToList())</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="labelprofile text-nowrap">-</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

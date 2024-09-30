@@ -1,0 +1,127 @@
+﻿@model Intranet.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "AdminLogin";
+}
+<div class="card accountcardLogin shadow position-absolute top-50 start-50 translate-middle justify-content-evenly flex-column">
+    <div class="text-center">
+        <img class="" src="~/Image/Logo_MoshiMoshi.jpg" style="width: 30vh;height:auto;" />
+    </div>
+    <div class="ps-5 pe-5">
+        <form asp-action="Login" method="post">
+            <div class="text-center">
+                <label class="fw-bold accounttitle">Admin Intranet</label>
+            </div>
+            <div class="mt-3">
+                <label class="accountlabel pb-3"><b>อีเมล</b></label>
+                <input class="form-control accountinput p-3" type="email" asp-for="Email" placeholder="กรุณาใส่อีเมลของคุณ" required>
+            </div>
+            <div class="mt-3" id="LoginShowPassword">
+                <label class="accountlabel pb-3"><b>รหัสผ่าน</b></label>
+                <div class="d-flex align-items-center">
+                    <input class="form-control accountinput p-3" id="password" type="password" asp-for="Password" placeholder="กรุณาใส่รหัสผ่านของคุณ" required>
+                    <button type="button" class="accountbtnshowpassword position-absolute end-0">
+                        <i class="bi bi-eye-slash-fill"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-3 text-end">
+                <a class="fw-bold text-nowrap accountlabelforgotpassword" asp-action="ForgotPassword">ลืมรหัสผ่าน?</a>
+            </div>
+            <div class="mt-3">
+                <button class="btn accountbtn fw-bold text-nowrap p-2" type="submit">เข้าสู่ระบบ</button>
+                @*<label class="accountlabel">© 2023 Moshi Moshi Retail Corporation Pub Co., Ltd. All rights reserved. Version @ViewBag.Version</label>*@
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@*--**********ErrorLoginModal**********--*@
+@if (ViewBag.ErrorLogin == "Error")
+{
+    <div class="modal fade accountmodal" id="ErrorLoginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ErrorLoginModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="bi bi-exclamation-circle iconerroraccountmodal rounded-circle"></i>
+                    </div>
+                    <div class="mt-0 text-center">
+                        @if (ViewBag.ErrorTextLogin == "ErrorPasswordLock")
+                        {
+                            <label class="labelerroraccountmodal fw-bold">รหัสผ่านถูกล็อค</label>
+                        }
+                        else if (ViewBag.ErrorTextLogin == "ErrorPasswordCount")
+                        {
+                            <label class="labelerroraccountmodal fw-bold">รหัสผ่านผิด</label>
+                        }
+                        else if (ViewBag.ErrorTextLogin == "ErrorUserEmail")
+                        {
+                            <label class="labelerroraccountmodal fw-bold">อีเมลไม่ถูกต้อง</label>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <div class="mt-3 text-center">
+                        @if (ViewBag.ErrorTextLogin == "ErrorPasswordLock")
+                        {
+                            <label class="labelaccountmodal">เนื่องจากใส่รหัสผ่านผิดเกิน 5 ครั้ง</label>
+
+                            <br />
+                            <label class="labelaccountmodal">กรุณากด <b>ลืมรหัสผ่าน</b></label>
+                        }
+                        else if (ViewBag.ErrorTextLogin == "ErrorPasswordCount")
+                        {
+                            <label class="labelaccountmodal">คุณใส่รหัสผ่านผิด @ViewBag.ErrorPasswordCount/5 ครั้ง</label>
+                            <br />
+                            <label class="labelaccountmodal">กรุณาใส่รหัสผ่านใหม่</label>
+
+                            <div class="mt-4 text-start p-3 policy">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-1-circle-fill iconsuccesspolicy"></i>
+                                    <label class="labelpolicy ms-2">รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</label>
+                                </div>
+                                <br />
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-2-circle-fill iconsuccesspolicy"></i>
+                                    <label class="labelpolicy ms-2">รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษพิมพ์เล็ก (a-z) อย่างน้อย 1 ตัวอักษร</label>
+                                </div>
+                                <br />
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-3-circle-fill iconsuccesspolicy"></i>
+                                    <label class="labelpolicy ms-2">รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ (A-Z) อย่างน้อย 1 ตัวอักษร</label>
+                                </div>
+                                <br />
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-4-circle-fill iconsuccesspolicy"></i>
+                                    <label class="labelpolicy ms-2">รหัสผ่านต้องมีตัวเลข (0-9) อย่างน้อย 1 ตัวอักษร</label>
+                                </div>
+                                <br />
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-5-circle-fill iconsuccesspolicy"></i>
+                                    <label class="labelpolicy ms-2">รหัสผ่านต้องมีตัวอักขระพิเศษ อย่างน้อย 1 ตัวอักษร</label>
+                                </div>
+                            </div>
+                        }
+                        else if (ViewBag.ErrorTextLogin == "ErrorUserEmail")
+                        {
+                            <label class="labelaccountmodal">เนื่องจากไม่มีอีเมลนี้อยู่ในระบบ</label>
+                            <br />
+                            <label class="labelaccountmodal">กรุณาตรวจสอบอีกครั้ง</label>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                </div>
+                <div class="text-center mt-3 mb-3">
+                    <button class="btn p-2 ms-2 btnaccountmodal" type="button" data-bs-dismiss="modal">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

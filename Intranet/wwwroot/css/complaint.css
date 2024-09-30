@@ -1,0 +1,43 @@
+﻿.selectcategorycomplaint_complaint {
+    border-radius: 25px;
+}
+
+.complaint, .header_complaint {
+    background-color: var(--colorwhite);
+    border-radius: 25px;
+}
+
+.labelhead_complaint{
+    font-size: 20px;
+    color: var(--color7);
+}
+
+.editor_complaint {
+    border: solid 1px var(--color20);
+    border-radius: 25px;
+}
+
+.btn_complaint {
+    color: var(--colorwhite);
+    background-color: var(--color12);
+    border: none;
+}
+
+    .btn_complaint:hover, .btn_complaint:active {
+        color: var(--colorwhite);
+        background-color: var(--color13);
+        border: none;
+    }
+
+    .btn_complaint:disabled, .btn_complaint:disabled:hover, .btn_complaint:disabled:active {
+        color: var(--color11);
+        background-color: var(--color8);
+        border: none;
+        cursor: no-drop;
+        pointer-events: auto;
+    }
+
+.icon_header_complaint {
+    color: var(--color7);
+    font-size: 100px;
+}

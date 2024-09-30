@@ -1,0 +1,2468 @@
+﻿@model Intranet.ViewModels.MaintainViewModel
+
+@{
+    ViewData["Title"] = "Maintain";
+}
+
+<input type="hidden" id="useridprofile" value="@ViewBag.UserId" />
+
+<div class="shadow-sm Maintain">
+    <button class="w-100 p-3 border-0 text-start mb-0 btnMaintain d-flex justify-content-between" id="btnMaintainMenu" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaintainMenu" aria-expanded="true">
+        <div>
+            <i class="bi bi-file-earmark-text ms-3 me-3 btnMaintainIcon"></i>
+            <span>Menu</span>
+        </div>
+        <div class="position-relative me-4">
+            <span class="position-absolute btnArrowMaintainMenu">
+                <i class="bi bi-chevron-down btnArrowMaintain"></i>
+            </span>
+        </div>
+    </button>
+    <div class="collapse" id="collapseMaintainMenu">
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainMenuGroupModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    MenuGroup
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainUserMenuGroupModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    UserMenuGroup
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="shadow-sm Maintain mt-5">
+    <button class="w-100 p-3 border-0 text-start mb-0 btnMaintain d-flex justify-content-between" id="btnMaintainComplaint" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaintainComplaint" aria-expanded="true">
+        <div>
+            <i class="bi bi-clipboard-check ms-3 me-3"></i>
+            <span>Complaint</span>
+        </div>
+        <div class="position-relative me-4">
+            <span class="position-absolute btnArrowMaintainComplaint">
+                <i class="bi bi-chevron-down btnArrowMaintain"></i>
+            </span>
+        </div>
+    </button>
+    <div class="collapse" id="collapseMaintainComplaint">
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainCategoryComplaintModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    CategoryComplaint
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainComplaintFromModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    ComplainFrom
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="shadow-sm Maintain mt-5">
+    <button class="w-100 p-3 border-0 text-start mb-0 btnMaintain d-flex justify-content-between" id="btnMaintainLocation" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaintainLocation" aria-expanded="true">
+        <div>
+            <i class="bi bi-geo-alt ms-3 me-3"></i>
+            <span>Location</span>
+        </div>
+        <div class="position-relative me-4">
+            <span class="position-absolute btnArrowMaintainLocation">
+                <i class="bi bi-chevron-down btnArrowMaintain"></i>
+            </span>
+        </div>
+    </button>
+    <div class="collapse" id="collapseMaintainLocation">
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainLocationGroupModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    LocationGroup
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainLocationModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    Location
+                </button>
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainDepartment1Modal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    Department 1
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainDepartment2Modal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    Department 2
+                </button>
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainSectionModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    Section
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainShopModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    Shop
+                </button>
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainShopGroupModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    ShopGroup
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainShopPositionGroupModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    ShopPositionGroup
+                </button>
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col">
+                <button class="btn w-100 card p-3 cardMaintain  ClickMaintainPositionModal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">
+                    Position
+                </button>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+</div>
+
+@*--**********MaintainModal**********--*@
+<div class="modal fade maintainmodal" id="MaintainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+        @*----------MaintainMenuGroupModal----------*@
+        <div class="modal-content p-3" id="MaintainMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">MenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden;">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainMenuGroupModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหากลุ่มเมนู" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainMenuGroupModal">
+                                <thead class="text-start align-middle">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อกลุ่มเมนู</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.MenuGroups)
+                                    {
+                                        <tr>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainMenuGroup" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainMenuGroup" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainMenuGroup" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มกลุ่มเมนู</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainUserMenuGroupModal----------*@
+        <div class="modal-content p-3" id="MaintainUserMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">UserMenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden;">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainUserMenuGroupModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหากลุ่มเมนูผู้ใช้" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainUserMenuGroupModal">
+                                <thead class="text-start align-middle">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อกลุ่มเมนู</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อผู้ใช้</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.UserMenuGroups)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.MenuGroup != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.MenuGroup.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.User != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.User.FirstNameTH @item.User.LastNameTH</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainUserMenuGroup" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="menugroupid" value="@item.MenuGroupId">
+                                                            <input type="hidden" id="userid" value="@item.UserId">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainUserMenuGroup" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="menugroupname" value="@item.MenuGroup!.Name">
+                                                            <input type="hidden" id="username" value="@item.User!.FirstNameTH @item.User.LastNameTH">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainUserMenuGroup" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มกลุ่มเมนูผู้ใช้</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainCategoryComplaintModal----------*@
+        <div class="modal-content p-3" id="MaintainCategoryComplaintModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">CategoryComplaint</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden;">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainCategoryComplaintModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาหัวข้อการร้องเรียน" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainCategoryComplaintModal">
+                                <thead class="text-start align-middle">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อหัวข้อการร้องเรียน</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">อีเมล</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.CategoryComplaints)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.Name != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.Email != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Email</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainCategoryComplaint" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="email" value="@item.Email">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainCategoryComplaint" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainCategoryComplaint" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มหัวข้อการร้องเรียน</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainComplaintFromModal----------*@
+        <div class="modal-content p-3" id="MaintainComplaintFromModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">ComplaintFrom</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden;">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainComplaintFromModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาอีเมลการร้องเรียน" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainComplaintFromModal">
+                                <thead class="text-start align-middle">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">อีเมล</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">รหัสผ่าน</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.ComplaintFroms)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.Email != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Email</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.Password != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Password</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainComplaintFrom" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="email" value="@item.Email">
+                                                            <input type="hidden" id="password" value="@item.Password">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainComplaintFrom" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="email" value="@item.Email">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainComplaintFrom" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มอีเมลการร้องเรียน</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainLocationGroupModal----------*@
+        <div class="modal-content p-3" id="MaintainLocationGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">LocationGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainLocationGroupModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหากลุ่มสถานที่ทำงาน" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainLocationGroupModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อกลุ่มสถานที่ทำงาน</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.LocationGroups)
+                                    {
+                                        <tr>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainLocationGroup" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainLocationGroup" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainLocationGroup" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มกลุ่มสถานที่ทำงาน</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainLocationModal----------*@
+        <div class="modal-content p-3" id="MaintainLocationModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Location</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainLocationModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาสถานที่ทำงาน" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainLocationModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อสถานที่ทำงาน</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">กลุ่มสถานที่ทำงาน</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.Locations)
+                                    {
+                                        <tr>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3">
+                                                @if (item.LocationGroup.Name != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.LocationGroup.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainLocation" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="locationlocationgroupid" value="@item.LocationGroupId">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainLocation" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainLocation" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มสถานที่ทำงาน</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainDepartment1Modal----------*@
+        <div class="modal-content p-3" id="MaintainDepartment1Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Department 1</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainDepartment1Modal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาฝ่าย 1" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainDepartment1Modal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อฝ่าย 1</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">สถานที่ทำงาน</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.Department1s)
+                                    {
+                                        <tr>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3">
+                                                @if (item.Location.Name != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Location.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainDepartment1" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="department1locationid" value="@item.LocationId">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainDepartment1" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainDepartment1" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มฝ่าย 1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainDepartment2Modal----------*@
+        <div class="modal-content p-3" id="MaintainDepartment2Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Department 2</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainDepartment2Modal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาฝ่าย 2" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainDepartment2Modal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ฝ่าย 1</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อฝ่าย 2</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.Department2s)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.Department1.Name != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Department1.Name (@item.Department1.Location.Name)</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainDepartment2" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="department2department1id" value="@item.Department1Id">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainDepartment2" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainDepartment2" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มฝ่าย 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainSectionModal----------*@
+        <div class="modal-content p-3" id="MaintainSectionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Section</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainSectionModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาแผนก" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainSectionModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ฝ่าย 1</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ฝ่าย 2</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อแผนก</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.Sections)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.Department1.Name != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Department1.Name (@item.Department1.Location.Name)</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.Department2 != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Department2.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainSection" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="sectiondepartment1id" value="@item.Department1Id">
+                                                            <input type="hidden" id="sectiondepartment2id" value="@item.Department2Id">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainSection" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainSection" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มแผนก</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainShopModal----------*@
+        <div class="modal-content p-3" id="MaintainShopModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Shop</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainShopModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาสาขา" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainShopModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">แผนก</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">กลุ่มสาขา</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">กลุ่มตำแหน่งสาขา</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">รหัสสาขา</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อสาขา</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.Shops)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.Section != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Section.Name (@item.Section.Department1.Location.Name)</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.ShopGroup != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.ShopGroup.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.ShopPositionGroup != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.ShopPositionGroup.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Branch</label></td>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainShop" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="shopsectionid" value="@item.SectionId">
+                                                            <input type="hidden" id="shopshopgroupid" value="@item.ShopGroupId">
+                                                            <input type="hidden" id="shopshoppositiongroupid" value="@item.ShopPositionGroupId">
+                                                            <input type="hidden" id="shopbranch" value="@item.Branch">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainShop" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainShop" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มสาขา</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainShopGroupModal----------*@
+        <div class="modal-content p-3" id="MaintainShopGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">ShopGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainShopGroupModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหากลุ่มสาขา" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainShopGroupModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อกลุ่มสาขา</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.ShopGroups)
+                                    {
+                                        <tr>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainShopGroup" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainShopGroup" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainShopGroup" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มกลุ่มสาขา</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainShopPositionGroupModal----------*@
+        <div class="modal-content p-3" id="MaintainShopPositionGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">ShopPositionGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden;">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainShopPositionGroupModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหากลุ่มตำแหน่งสาขา" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainShopPositionGroupModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อกลุ่มตำแหน่งสาขา</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.ShopPositionGroups)
+                                    {
+                                        <tr>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainShopPositionGroup" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainShopPositionGroup" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainShopPositionGroup" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มกลุ่มตำแหน่งสาขา</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*----------MaintainPositionModal----------*@
+        <div class="modal-content p-3" id="MaintainPositionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Position</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="input-group">
+                            <i class="bi bi-search ps-4 position-absolute searchiconmaintain" style="z-index:2;padding-top:0.8rem;"></i>
+                            <input type="text" id="SearchMaintainPositionModal" class="form-control text-nowrap searchmaintain" placeholder="ค้นหาตำแหน่ง" style="z-index: 1;border-radius: 15px;">
+                        </div>
+
+                        <div class="table-responsive p-0 mt-4" style="max-height:48vh;">
+                            <table class="table table-borderless m-0 ps-2 pe-2 table tablemaintain TableMaintainPositionModal">
+                                <thead class="text-start align-middle bg-none">
+                                    <tr>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">แผนก</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">กลุ่มตำแหน่งสาขา</label></th>
+                                        <th class="p-3"><label class="tableheadlabelmaintain fw-bold">ชื่อตำแหน่ง</label></th>
+                                        <th class="p-3 text-center"><label class="tableheadlabelmaintain fw-bold">การจัดการ</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-start align-middle">
+                                    @foreach (var item in Model.Positions)
+                                    {
+                                        <tr>
+                                            <td class="p-3">
+                                                @if (item.Section.Name != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.Section.Name (@item.Section.Department1.Location.Name)</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3">
+                                                @if (item.ShopPositionGroup != null)
+                                                {
+                                                    <label class="tablelabelmaintain">@item.ShopPositionGroup.Name</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="tablelabelmaintain">-</label>
+                                                }
+                                            </td>
+                                            <td class="p-3"><label class="tablelabelmaintain">@item.Name</label></td>
+                                            <td class="p-3 text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn tablemorelabelmaintain" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                                                    <ul class="dropdown-menu shadow-sm" style="border-radius:15px;border-color: rgba(255,255,255,0);">
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowneditlabelmaintain BtnEditMaintainPosition" href="#" data-bs-toggle="modal" data-bs-target="#EditMaintainModal"><i class="bi bi-pencil"></i>&nbsp;&nbsp;แก้ไข</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                            <input type="hidden" id="positionsectionid" value="@item.SectionId">
+                                                            <input type="hidden" id="positionshoppositiongroupid" value="@item.ShopPositionGroupId">
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item tabledropdowndeletelabelmaintain BtnDeleteMaintainPosition" href="#" data-bs-toggle="modal" data-bs-target="#DeleteMaintainModal"><i class="bi bi-trash"></i>&nbsp;&nbsp;ลบข้อมูล</a>
+                                                            <input type="hidden" id="id" value="@item.Id">
+                                                            <input type="hidden" id="name" value="@item.Name">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn p-2 text-nowrap btnaddmaintainmodal BtnCreateMaintainPosition" type="button" data-bs-toggle="modal" data-bs-target="#CreateMaintainModal">+ เพิ่มตำแหน่ง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*--**********CreateMaintainModal**********--*@
+<div class="modal fade maintainmodal" id="CreateMaintainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="CreateMaintainModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        @*----------CreateMaintainMenuGroupModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add MenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainMenuGroup" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainMenuGroup" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file"/>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainMenuGroup">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มเมนู</label>
+                        <input type="text" asp-for="MenuGroup.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainMenuGroup" placeholder="กรุณาใส่ชื่อกลุ่มเมนู" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="MenuGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainUserMenuGroupModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainUserMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add UserMenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainUserMenuGroup" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainUserMenuGroup" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file"/>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainUserMenuGroup">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มเมนู</label>
+                        <select asp-for="UserMenuGroup.MenuGroupId" asp-items="ViewBag.MenuGroupsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainUserMenuGroup" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มเมนู</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainUserMenuGroup">
+                        <label class="labelmaintainmodal fw-bold">ผู้ใช้</label>
+                        <select asp-for="UserMenuGroup.UserId" asp-items="ViewBag.UsersList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainUserMenuGroup" aria-label="Default select example" required>
+                            <option value="">เลือกผู้ใช้</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="UserMenuGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainCategoryComplaintModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainCategoryComplaintModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add CategoryComplaint</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainCategoryComplaint" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainCategoryComplaint" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainCategoryComplaint">
+                        <label class="labelmaintainmodal fw-bold">ชื่อหัวข้อการร้องเรียน</label>
+                        <input type="text" asp-for="CategoryComplaint.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainCategoryComplaint" placeholder="กรุณาใส่ชื่อหัวข้อการร้องเรียน" required />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainCategoryComplaint">
+                        <label class="labelmaintainmodal fw-bold">อีเมล</label>
+                        <input type="text" asp-for="CategoryComplaint.Email" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainCategoryComplaint" placeholder="กรุณาใส่อีเมล" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="CategoryComplaint" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainComplaintFromModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainComplaintFromModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add ComplaintFrom</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainComplaintFrom" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainComplaintFrom" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainComplaintFrom">
+                        <label class="labelmaintainmodal fw-bold">อีเมล</label>
+                        <input type="text" asp-for="ComplaintFrom.Email" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainComplaintFrom" placeholder="กรุณาใส่อีเมล" required />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainComplaintFrom">
+                        <label class="labelmaintainmodal fw-bold">รหัสผ่าน</label>
+                        <input type="text" asp-for="ComplaintFrom.Password" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainComplaintFrom" placeholder="กรุณาใส่รหัสผ่าน" required />
+                    </div>
+                </div>
+
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="ComplaintFrom" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainLocationGroupModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainLocationGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add LocationGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainLocationGroup" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainLocationGroup" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainLocationGroup">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มสถานที่ทำงาน</label>
+                        <input type="text" asp-for="LocationGroup.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainLocationGroup" placeholder="กรุณาใส่ชื่อกลุ่มสถานที่ทำงาน" required />
+                    </div>
+                </div>
+
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="LocationGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainLocationModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainLocationModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add Location</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainLocation" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainLocation" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainLocation">
+                        <label class="labelmaintainmodal fw-bold">ชื่อสถานที่ทำงาน</label>
+                        <input type="text" asp-for="Location.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainLocation" placeholder="กรุณาใส่ชื่อสถานที่ทำงาน" required />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainLocation">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มสถานที่ทำงาน</label>
+                        <select asp-for="Location.LocationGroupId" asp-items="ViewBag.LocationGroupsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainLocation" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มสถานที่ทำงาน</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="Location" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainDepartment1Modal----------*@
+        <div class="modal-content p-3" id="CreateMaintainDepartment1Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add Department 1</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainDepartment1" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainDepartment1" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainDepartment1">
+                        <label class="labelmaintainmodal fw-bold">ชื่อฝ่าย 1</label>
+                        <input type="text" asp-for="Department1.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainDepartment1" placeholder="กรุณาใส่ชื่อฝ่าย 1" required />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainDepartment1">
+                        <label class="labelmaintainmodal fw-bold">สถานที่ทำงาน</label>
+                        <select asp-for="Department1.LocationId" asp-items="ViewBag.LocationsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainDepartment1" aria-label="Default select example" required>
+                            <option value="">เลือกสถานที่ทำงาน</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="Department1" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainDepartment2Modal----------*@
+        <div class="modal-content p-3" id="CreateMaintainDepartment2Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add Department 2</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainDepartment2" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainDepartment2" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainDepartment2">
+                        <label class="labelmaintainmodal fw-bold">ฝ่าย 1</label>
+                        <select asp-for="Department2.Department1Id" asp-items="ViewBag.Department1sList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainDepartment2" aria-label="Default select example" required>
+                            <option value="">เลือกฝ่าย 1</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainDepartment2">
+                        <label class="labelmaintainmodal fw-bold">ชื่อฝ่าย 2</label>
+                        <input type="text" asp-for="Department2.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainDepartment2" placeholder="กรุณาใส่ชื่อฝ่าย 2" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="Department2" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainSectionModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainSectionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add Section</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainSection" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainSection" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainSection">
+                        <label class="labelmaintainmodal fw-bold">ฝ่าย 1</label>
+                        <select asp-for="Section.Department1Id" asp-items="ViewBag.Department1sList" class="form-select p-2 mt-3 selectmaintainmodal SelectSectionDepartment1 inputCreateMaintainSection" aria-label="Default select example" required>
+                            <option value="">เลือกฝ่าย 1</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 SelectSectionDepartment2 inputCreateMaintainSection" hidden>
+                        <label class="labelmaintainmodal fw-bold">ฝ่าย 2</label>
+                        <select asp-for="Section.Department2Id" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainSection" aria-label="Default select example" required disabled>
+                            <option value="">เลือกฝ่าย 2</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainSection">
+                        <label class="labelmaintainmodal fw-bold">ชื่อแผนก</label>
+                        <input type="text" asp-for="Section.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainSection" placeholder="กรุณาใส่ชื่อแผนก" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="Section" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainShopModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainShopModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add Shop</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainShop" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainShop" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShop">
+                        <label class="labelmaintainmodal fw-bold">แผนก</label>
+                        <select asp-for="Shop.SectionId" asp-items="ViewBag.SectionsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainShop" aria-label="Default select example" required>
+                            <option value="">เลือกแผนก</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShop">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มสาขา</label>
+                        <select asp-for="Shop.ShopGroupId" asp-items="ViewBag.ShopGroupsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainShop" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มสาขา</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShop">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มตำแหน่งสาขา</label>
+                        <select asp-for="Shop.ShopPositionGroupId" asp-items="ViewBag.ShopPositionGroupsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainShop" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มตำแหน่งสาขา</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShop">
+                        <label class="labelmaintainmodal fw-bold">รหัสสาขา</label>
+                        <input type="text" asp-for="Shop.Branch" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainShop" placeholder="กรุณาใส่รหัสสาขา" maxlength="5" required />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShop">
+                        <label class="labelmaintainmodal fw-bold">ชื่อสาขา</label>
+                        <input type="text" asp-for="Shop.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainShop" placeholder="กรุณาใส่ชื่อสาขา" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="Shop" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainShopGroupModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainShopGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add ShopGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainShopGroup" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainShopGroup" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShopGroup">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มสาขา</label>
+                        <input type="text" asp-for="ShopGroup.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainShopGroup" placeholder="กรุณาใส่ชื่อกลุ่มสาขา" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="ShopGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainShopPositionGroupModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainShopPositionGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add ShopPositionGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainShopPositionGroup" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainShopPositionGroup" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainShopPositionGroup">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มตำแหน่งสาขา</label>
+                        <input type="text" asp-for="ShopPositionGroup.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainShopPositionGroup" placeholder="กรุณาใส่ชื่อกลุ่มตำแหน่งสาขา" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="ShopPositionGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------CreateMaintainPositionModal----------*@
+        <div class="modal-content p-3" id="CreateMaintainPositionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Add Position</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="CreateMaintain" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div>
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateMaintainPosition" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateMaintainPosition" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputmaintainmodal" name="FileCreateMaintain" type="file" />
+                    </div>
+                    <div class="mt-3 inputCreateMaintainPosition">
+                        <label class="labelmaintainmodal fw-bold">แผนก</label>
+                        <select asp-for="Position.SectionId" asp-items="ViewBag.SectionsList" class="form-select p-2 mt-3 selectmaintainmodal inputCreateMaintainPosition" aria-label="Default select example" required>
+                            <option value="">เลือกแผนก</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainPosition">
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">กลุ่มตำแหน่งสาขา</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchPositionShopPositionGroup" style="width:50px;height:25px;">
+                        </div>
+                        <select asp-for="Position.ShopPositionGroupId" asp-items="ViewBag.ShopPositionGroupsList" class="form-select p-2 mt-3 selectmaintainmodal SelectPositionShopPositionGroup inputCreateMaintainPosition" aria-label="Default select example" required disabled hidden>
+                            <option value="">เลือกกลุ่มตำแหน่งสาขา</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 inputCreateMaintainPosition">
+                        <label class="labelmaintainmodal fw-bold">ชื่อตำแหน่ง</label>
+                        <input type="text" asp-for="Position.Name" class="form-control p-2 mt-3 d-block inputmaintainmodal inputCreateMaintainPosition" placeholder="กรุณาใส่ชื่อตำแหน่ง" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainData" value="Position" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@*--**********EditMaintainModal**********--*@
+<div class="modal fade maintainmodal" id="EditMaintainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="EditMaintainModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        @*----------EditMaintainMenuGroupModal----------*@
+        <div class="modal-content p-3" id="EditMaintainMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit MenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มสาขา</label>
+                        <input type="text" asp-for="MenuGroup.Name" id="EditMaintainMenuGroupName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อกลุ่มสาขา" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainMenuGroupId" />
+                    <input type="hidden" name="MaintainData" value="MenuGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainUserMenuGroupModal----------*@
+        <div class="modal-content p-3" id="EditMaintainUserMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit UserMenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มเมนู</label>
+                        <select asp-for="UserMenuGroup.MenuGroupId" asp-items="ViewBag.MenuGroupsList" id="EditMaintainUserMenuGroupMenuGroupId" class="form-select p-2 mt-3 selectmaintainmodal" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มเมนู</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ผู้ใช้</label>
+                        <select asp-for="UserMenuGroup.UserId" asp-items="ViewBag.UsersList" id="EditMaintainUserMenuGroupUserId" class="form-select p-2 mt-3 selectmaintainmodal" aria-label="Default select example" required>
+                            <option value="">เลือกผู้ใช้</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainUserMenuGroupId" />
+                    <input type="hidden" name="MaintainData" value="UserMenuGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainCategoryComplaintModal----------*@
+        <div class="modal-content p-3" id="EditMaintainCategoryComplaintModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit CategoryComplaint</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อหัวข้อการร้องเรียน</label>
+                        <input type="text" asp-for="CategoryComplaint.Name" id="EditMaintainCategoryComplaintName" placeholder="กรุณาใส่ชื่อหัวข้อการร้องเรียน" class="form-control p-2 mt-3 d-block inputmaintainmodal" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">อีเมล</label>
+                        <input type="text" asp-for="CategoryComplaint.Email" id="EditMaintainCategoryComplaintEmail" placeholder="กรุณาใส่อีเมล" class="form-control p-2 mt-3 d-block inputmaintainmodal" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainCategoryComplaintId" />
+                    <input type="hidden" name="MaintainData" value="CategoryComplaint" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainComplaintFromModal----------*@
+        <div class="modal-content p-3" id="EditMaintainComplaintFromModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit ComplaintFrom</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">อีเมล</label>
+                        <input type="text" asp-for="ComplaintFrom.Email" id="EditMaintainComplaintFromEmail" placeholder="กรุณาใส่อีเมล" class="form-control p-2 mt-3 d-block inputmaintainmodal" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">รหัสผ่าน</label>
+                        <input type="text" asp-for="ComplaintFrom.Password" id="EditMaintainComplaintFromPassword" placeholder="กรุณาใส่รหัสผ่าน" class="form-control p-2 mt-3 d-block inputmaintainmodal" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainComplaintFromId" />
+                    <input type="hidden" name="MaintainData" value="ComplaintFrom" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainLocationGroupModal----------*@
+        <div class="modal-content p-3" id="EditMaintainLocationGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit LocationGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มสถานที่ทำงาน</label>
+                        <input type="text" asp-for="LocationGroup.Name" id="EditMaintainLocationGroupName" placeholder="กรุณาใส่ชื่อกลุ่มสถานที่ทำงาน" class="form-control p-2 mt-3 d-block inputmaintainmodal" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainLocationGroupId" />
+                    <input type="hidden" name="MaintainData" value="LocationGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainLocationModal----------*@
+        <div class="modal-content p-3" id="EditMaintainLocationModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit Location</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อสถานที่ทำงาน</label>
+                        <input type="text" asp-for="Location.Name" id="EditMaintainLocationName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อสถานที่ทำงาน" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มสถานที่ทำงาน</label>
+                        <select asp-for="Location.LocationGroupId" asp-items="ViewBag.LocationGroupsList" id="EditMaintainLocationLocationGroupId" class="form-select p-2 mt-3 selectmaintainmodal" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มสถานที่ทำงาน</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainLocationId" />
+                    <input type="hidden" name="MaintainData" value="Location" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainDepartment1Modal----------*@
+        <div class="modal-content p-3" id="EditMaintainDepartment1Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit Department 1</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อฝ่าย 1</label>
+                        <input type="text" asp-for="Department1.Name" id="EditMaintainDepartment1Name" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อฝ่าย 1" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">สถานที่ทำงาน</label>
+                        <select asp-for="Department1.LocationId" asp-items="ViewBag.LocationsList" id="EditMaintainDepartment1LocationId" class="form-select p-2 mt-3 selectmaintainmodal" aria-label="Default select example" required>
+                            <option value="">เลือกสถานที่ทำงาน</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainDepartment1Id" />
+                    <input type="hidden" name="MaintainData" value="Department1" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainDepartment2Modal----------*@
+        <div class="modal-content p-3" id="EditMaintainDepartment2Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit Department 2</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ฝ่าย 1</label>
+                        <select asp-for="Department2.Department1Id" asp-items="ViewBag.Department1sList" id="EditMaintainDepartment2Department1Id" class="form-select p-2 mt-3 selectmaintainmodal" aria-label="Default select example" required>
+                            <option value="">เลือกฝ่าย 1</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อฝ่าย 2</label>
+                        <input type="text" asp-for="Department2.Name" id="EditMaintainDepartment2Name" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อฝ่าย 2" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainDepartment2Id" />
+                    <input type="hidden" name="MaintainData" value="Department2" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainSectionModal----------*@
+        <div class="modal-content p-3" id="EditMaintainSectionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit Section</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ฝ่าย 1</label>
+                        <select asp-for="Section.Department1Id" asp-items="ViewBag.Department1sList" id="EditMaintainSectionDepartment1Id" class="form-select p-2 mt-3 selectmaintainmodal SelectEditSectionDepartment1" aria-label="Default select example" required>
+                            <option value="">เลือกฝ่าย 1</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 SelectEditSectionDepartment2" hidden>
+                        <label class="labelmaintainmodal fw-bold">ฝ่าย 2</label>
+                        <select asp-for="Section.Department2Id" id="EditMaintainSectionDepartment2Id" class="form-select p-2 mt-3 selectmaintainmodal" aria-label="Default select example" required disabled>
+                            <option value="">เลือกฝ่าย 2</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อแผนก</label>
+                        <input type="text" asp-for="Section.Name" id="EditMaintainSectionName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อแผนก" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainSectionId" />
+                    <input type="hidden" name="MaintainData" value="Section" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainShopModal----------*@
+        <div class="modal-content p-3" id="EditMaintainShopModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit Shop</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">แผนก</label>
+                        <select asp-for="Shop.SectionId" asp-items="ViewBag.SectionsList" id="EditMaintainShopSectionId" class="form-select p-2 mt-3 selectmaintainmodal SelectEditSectionDepartment1" aria-label="Default select example" required>
+                            <option value="">เลือกแผนก</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มสาขา</label>
+                        <select asp-for="Shop.ShopGroupId" asp-items="ViewBag.ShopGroupsList" id="EditMaintainShopShopGroupId" class="form-select p-2 mt-3 selectmaintainmodal SelectEditSectionDepartment1" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มสาขา</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">กลุ่มตำแหน่งสาขา</label>
+                        <select asp-for="Shop.ShopPositionGroupId" asp-items="ViewBag.ShopPositionGroupsList" id="EditMaintainShopShopPositionGroupId" class="form-select p-2 mt-3 selectmaintainmodal SelectEditSectionDepartment1" aria-label="Default select example" required>
+                            <option value="">เลือกกลุ่มตำแหน่งสาขา</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">รหัสสาขา</label>
+                        <input type="text" asp-for="Shop.Branch" id="EditMaintainShopBranchName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่รหัสสาขา" maxlength="5" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อสาขา</label>
+                        <input type="text" asp-for="Shop.Name" id="EditMaintainShopName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อสาขา" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainShopId" />
+                    <input type="hidden" name="MaintainData" value="Shop" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainShopGroupModal----------*@
+        <div class="modal-content p-3" id="EditMaintainShopGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit ShopGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มสาขา</label>
+                        <input type="text" asp-for="ShopGroup.Name" id="EditMaintainShopGroupName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อการขออนุมัติจากสาขา" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainShopGroupId" />
+                    <input type="hidden" name="MaintainData" value="ShopGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainShopPositionGroupModal----------*@
+        <div class="modal-content p-3" id="EditMaintainShopPositionGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit ShopPositionGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อกลุ่มตำแหน่งสาขา</label>
+                        <input type="text" asp-for="ShopPositionGroup.Name" id="EditMaintainShopPositionGroupName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อกลุ่มตำแหน่งสาขา" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainShopPositionGroupId" />
+                    <input type="hidden" name="MaintainData" value="ShopPositionGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------EditMaintainPositionModal----------*@
+        <div class="modal-content p-3" id="EditMaintainPositionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Edit Position</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="EditMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">แผนก</label>
+                        <select asp-for="Position.SectionId" asp-items="ViewBag.SectionsList" id="EditMaintainPositionSectionId" class="form-select p-2 mt-3 selectmaintainmodal SelectEditSectionDepartment1" aria-label="Default select example" required>
+                            <option value="">เลือกแผนก</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelmaintainmodal fw-bold">กลุ่มตำแหน่งสาขา</label>
+                            <input class="form-check-input" type="checkbox" id="EditSwitchPositionShopPositionGroup" style="width:50px;height:25px;">
+                        </div>
+                        <select asp-for="Position.ShopPositionGroupId" asp-items="ViewBag.ShopPositionGroupsList" id="EditMaintainPositionShopPositionGroupId" class="form-select p-2 mt-3 selectmaintainmodal EditSelectPositionShopPositionGroup" aria-label="Default select example" required disabled hidden>
+                            <option value="">เลือกกลุ่มตำแหน่งสาขา</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">ชื่อตำแหน่ง</label>
+                        <input type="text" asp-for="Position.Name" id="EditMaintainPositionName" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่ชื่อตำแหน่ง" required />
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">บันทึก</button>
+                    <input type="hidden" name="MaintainId" id="EditMaintainPositionId" />
+                    <input type="hidden" name="MaintainData" value="Position" />
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+
+
+@*--**********DeleteMaintainModal**********--*@
+<div class="modal fade maintainmodal" id="DeleteMaintainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DeleteMaintainModal" aria-hidden="true">
+    <div class="modal-dialog">
+        @*----------DeleteMaintainMenuGroupModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete MenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainMenuGroupName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainMenuGroupId" />
+                    <input type="hidden" name="MaintainData" value="MenuGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainUserMenuGroupModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainUserMenuGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete UserMenuGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainUserMenuGroupName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainUserMenuGroupId" />
+                    <input type="hidden" name="MaintainData" value="UserMenuGroup" />
+                </div>
+            </form>
+        </div>       
+        @*----------DeleteMaintainCategoryComplaintModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainCategoryComplaintModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete CategoryComplaint</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainCategoryComplaintName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainCategoryComplaintId" />
+                    <input type="hidden" name="MaintainData" value="CategoryComplaint" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainComplaintFromModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainComplaintFromModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete ComplaintFrom</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainComplaintFromEmail"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainComplaintFromId" />
+                    <input type="hidden" name="MaintainData" value="ComplaintFrom" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainLocationGroupModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainLocationGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete LocationGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainLocationGroupName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainLocationGroupId" />
+                    <input type="hidden" name="MaintainData" value="LocationGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainLocationModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainLocationModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete Location</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainLocationName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainLocationId" />
+                    <input type="hidden" name="MaintainData" value="Location" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainDepartment1Modal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainDepartment1Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete Department 1</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainDepartment1Name"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainDepartment1Id" />
+                    <input type="hidden" name="MaintainData" value="Department1" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainDepartment2Modal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainDepartment2Modal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete Department 2</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainDepartment2Name"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainDepartment2Id" />
+                    <input type="hidden" name="MaintainData" value="Department2" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainSectionModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainSectionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete Section</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainSectionName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainSectionId" />
+                    <input type="hidden" name="MaintainData" value="Section" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainShopModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainShopModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete Shop</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainShopName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainShopId" />
+                    <input type="hidden" name="MaintainData" value="Shop" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainShopGroupModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainShopGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete ShopGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainShopGroupName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainShopGroupId" />
+                    <input type="hidden" name="MaintainData" value="ShopGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainShopPositionGroupModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainShopPositionGroupModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete ShopPositionGroup</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainShopPositionGroupName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainShopPositionGroupId" />
+                    <input type="hidden" name="MaintainData" value="ShopPositionGroup" />
+                </div>
+            </form>
+        </div>
+        @*----------DeleteMaintainPositionModal----------*@
+        <div class="modal-content p-3" id="DeleteMaintainPositionModal">
+            <div class="modal-header ps-md-3 pe-md-3">
+                <label class="modal-title fw-bold titlemaintainmodal" id="MaintainModal">Delete Position</label>
+                <button type="button" class="btn closemaintainmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form asp-action="DeleteMaintain">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3 text-center">
+                        <i class="bi bi-trash icondeletemaintainmodal"></i><br />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <label class="tablelabelmaintain">คุณแน่ใจใช่ไหมว่าต้องการลบข้อมูล</label><br />
+                        <label class="tablelabelmaintain" id="DeleteMaintainPositionName"></label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="labelmaintainmodal fw-bold">หมายเหตุ</label>
+                        <input type="text" asp-for="Remark" class="form-control p-2 mt-3 d-block inputmaintainmodal" placeholder="กรุณาใส่หมายเหตุ" required />
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn p-2 ms-2 btncancelmaintainmodal" type="button" data-bs-toggle="modal" data-bs-target="#MaintainModal">ยกเลิก</button>
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="submit">ลบ</button>
+                    <input type="hidden" name="MaintainId" id="DeleteMaintainPositionId" />
+                    <input type="hidden" name="MaintainData" value="Position" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@*--**********ErrorMaintainModal**********--*@
+@if (ViewBag.ErrorMaintain == "Error")
+{
+    <div class="modal fade maintainmodal" id="ErrorMaintainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ErrorMaintainModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="bi bi-exclamation-circle iconerrormaintainmodal rounded-circle"></i>
+                    </div>
+                    <div class="mt-0 text-center">
+                        @if (ViewBag.ErrorTextMaintain == "CreateError" || ViewBag.ErrorTextMaintain == "DetailError")
+                        {
+                            <label class="labelerrormaintain fw-bold">ไม่สามารถสร้างข้อมูลได้</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "EditError")
+                        {
+                            <label class="labelerrormaintain fw-bold">ไม่สามารถแก้ไขข้อมูลได้</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "EditFail")
+                        {
+                            <label class="labelerrormaintain fw-bold">ไม่สามารถแก้ไขข้อมูลได้</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "DeleteError")
+                        {
+                            <label class="labelerrormaintain fw-bold">ไม่สามารถลบข้อมูลได้</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "LogError")
+                        {
+                            <label class="labelerrormaintain fw-bold">เกิดความผิดพลาดระบบ Log</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "ErrorCreateMaintainExcel")
+                        {
+                            <label class="labelerrorusermanagemodal fw-bold">CreateMaintain (Excel)</label>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <div class="mt-3 text-center">
+                        @if (ViewBag.ErrorTextMaintain == "CreateError")
+                        {
+                            <label class="tablelabelmaintain">เนื่องจากข้อมูลที่ต้องการสร้างซ้ำกับในระบบ</label>
+
+                            <br />
+                            <label class="tablelabelmaintain">กรุณาตรวจสอบใหม่</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "EditError")
+                        {
+                            <label class="tablelabelmaintain">เนื่องจากข้อมูลที่ต้องการแก้ไขซ้ำกับในระบบ</label>
+
+                            <br />
+                            <label class="tablelabelmaintain">กรุณาตรวจสอบใหม่</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "EditFail")
+                        {
+                            <label class="tablelabelmaintain">เนื่องจากไม่พบข้อมูลในระบบ</label>
+
+                            <br />
+                            <label class="tablelabelmaintain">กรุณาตรวจสอบใหม่</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "DeleteError")
+                        {
+                            <label class="tablelabelmaintain">เนื่องจากไม่พบข้อมูลในระบบ</label>
+
+                            <br />
+                            <label class="tablelabelmaintain">กรุณาตรวจสอบใหม่</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "LogError")
+                        {
+                            <label class="tablelabelmaintain">เนื่องจากเกิดความผิดพลาดระบบ Log</label>
+
+                            <br />
+                            <label class="tablelabelmaintain">กรุณาตรวจสอบใหม่</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "ErrorCreateMaintainExcel")
+                        {
+                            <label class="tablelabelmaintain">จำนวนข้อมูล (Excel) ทั้้งหมด <b>@ViewBag.ErrorCreateExcelCountMaintain</b> รายการ</label>
+                            <br />
+                            <label class="tablelabelmaintain">นำเข้าระบบสำเร็จทั้งหมด <b>@ViewBag.ErrorCreateExcelSystemCountMaintain</b> รายการ</label>
+                        }
+                        else if (ViewBag.ErrorTextMaintain == "DetailError")
+                        {
+                            <label class="tablelabelmaintain">เนื่องจากข้อมูลที่ต้องการสร้างมีข้อมูลบางอย่างไม่ตรงกับในระบบ</label>
+
+                            <br />
+                            <label class="tablelabelmaintain">กรุณาตรวจสอบใหม่</label>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                </div>
+                <div class="text-center mt-3 mb-3">
+                    <button class="btn p-2 ms-2 btnmaintainmodal" type="button" data-bs-dismiss="modal">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

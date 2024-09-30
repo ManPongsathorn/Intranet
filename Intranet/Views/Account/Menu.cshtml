@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="row">
+    <div class="col">
+        <label class="head fw-bold text-nowrap p-0">Menu</label>
+
+        @*<div class="card mt-3 shadow-sm text-center menuminiticket">
+            <div class="card-body">
+                <p class="text-start m-0 fw-bold menuminitickethead">HW-220400001</p>
+                <p class="text-start">คีย์บอร์ดเสีย</p>
+                <div class="progress mt-2">
+                    <div class="progress-bar menuminiticketprogressbar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-2 m-0 fw-bold">กำลังดำเนินการ</p>
+                <p>เหลือเวลา 3 วัน</p>
+                <div class="d-grid gap-2">
+                    <a class="m-0 p-1 text-decoration-none text-nowrap" href="#">ดูเพิ่มเติม</a>
+                </div>
+            </div>
+        </div>*@
+
+
+        <div class="card mt-3 shadow-sm text-center menuminidays">
+            <div class="card-body">
+                <table class="table table-borderless" style="margin: 0 auto">
+                    <thead class="text-center align-middle">
+                        <tr class="days">
+                        </tr>
+                    </thead>
+                    <tbody class="text-center align-middle">
+                        <tr class="week">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="card mt-3 shadow-sm text-center menumini">
+            <div class="card-body d-grid gap-2">
+                <a class="btn pt-1 pb-1 menuminilink" asp-controller="Account" asp-action="Mywork">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <span class="p-2 ms-3"><i class="bi bi-person-workspace"></i></span>
+                        <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menumyworkcollapselayout">Mywork</span>
+                    </div>
+                </a>
+                @*<a class="btn pt-1 pb-1 menuminilink" href="#">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <span class="p-2 ms-3"><i class="bi bi-bar-chart-line"></i></span>
+                        <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menureportscollapselayout">Reports</span>
+                    </div>
+                </a>*@
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="btn pt-1 pb-1 menuminilink" asp-controller="Admin" asp-action="Index">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <span class="p-2 ms-3"><i class="bi bi-people"></i></span>
+                            <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menuusercollapselayout">User Manage</span>
+                        </div>
+                    </a>
+                    <a class="btn pt-1 pb-1 menuminilink" asp-controller="Admin" asp-action="Maintain">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <span class="p-2 ms-3"><i class="bi bi-tools"></i></span>
+                            <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menumaintaincollapselayout">Maintain</span>
+                        </div>
+                    </a>
+                }
+                @*<a class="btn pt-1 pb-1 menuminilink" href="#">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <span class="p-2 ms-3"><i class="bi bi-question-circle"></i></span>
+                        <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menuhelpcollapselayout">Help</span>
+                    </div>
+                </a>
+                <a class="btn pt-1 pb-1 menuminilink" href="#">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <span class="p-2 ms-3"><i class="bi bi-gear"></i></span>
+                        <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menusettingcollapselayout">Setting</span>
+                    </div>
+                </a>*@
+                <form id="Form_Logout" method="post" asp-controller="Account" asp-action="Logout">
+                    <a class="btn pt-1 pb-1 menuminilink w-100" href="javascript:{}" onclick="$('#Form_Logout').submit();">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <span class="p-2 ms-3"><i class="bi bi-box-arrow-left"></i></span>
+                            <span class="ps-2 pt-1 pb-1 text-nowrap" style="font-size:18px;" id="menulogoutcollapselayout">Log Out</span>
+                        </div>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,553 @@
+/*********** html ***********/
+html {
+    min-height: 100%;
+}
+
+/*********** body ***********/
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--backgroundcolor);
+}
+
+/*********** text ***********/
+.head {
+    color: var(--color2);
+    font-size: 32px;
+}
+
+.modal-content {
+    border-radius: 25px;
+    margin-top: -4%;
+    margin-bottom: -4%;
+}
+
+.btn-close {
+    background-color: var(--color8);
+    border-radius: 25px;
+}
+
+/*********** table ***********/
+td:first-child, th:first-child {
+    border-radius: 25px 0 0 25px;
+}
+
+td:last-child, th:last-child {
+    border-radius: 0 25px 25px 0;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: var(--colorwhite);
+}
+
+.table th {
+    color: var(--color7);
+    background: var(--nonecolor);
+    font-weight:normal;
+}
+
+.table td {
+    padding: 1rem;
+}
+
+
+/*********** layout ***********/
+.navmenu_layout {
+    width: auto;
+    height: calc(100vh - 0px);
+    background-color: var(--colorwhite);
+}
+
+.menu_layout {
+    color: var(--color7);
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+    .menu_layout:hover, .menu_layout.active {
+        color: var(--colorwhite);
+        font-size: 20px;
+        background-color: var(--colorblue);
+    }
+
+        .menu_layout:hover span, .menu_layout.active span {
+            color: var(--colorwhite);
+        }
+
+        .menu_layout span {
+            font-size: 16px;
+        }
+
+        .menu_layout span i {
+            font-size: 20px;
+        }
+
+.logomoshi_layout {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*********** profilelayout ***********/
+.navmenu_profilelayout {
+    width: auto;
+    height: auto;
+    z-index: 1;
+    border-left: 0px;
+    background-color: var(--colorwhite);
+}
+
+.menu_profilelayout {
+    background-color: var(--nonecolor);
+}
+
+.title_profilelayout {
+    color:var(--colorblack);
+    font-size: 30px;
+}
+
+.badge_notofication {
+    color: var(--colorwhite);
+    font-size: 10px;
+    background-color: var(--color18);
+    box-shadow: 0 0 1rem rgb(243 0 0 / 32%);
+    padding-top: 0.4rem;
+    width: 22px;
+    height: 22px;
+}
+
+.userimageprofile_notification {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.icondisabled_notification {
+    color: var(--color7);
+    font-size: 100px;
+}
+
+.labeldisabled_notification {
+    color: var(--color7);
+    font-size: 20px;
+}
+
+.iconunread_notification {
+    color: var(--colorblue);
+    font-size: 12px;
+}
+
+.headlabel_notification {
+    color: var(--colorblack);
+    font-size: 22px;
+}
+
+.all_notification {
+    color: var(--colorblue);
+    font-size: 16px;
+    border-radius: 25px;
+    border-color : var(--nonecolor);
+    background-color : var(--color17);
+}
+
+.unread_notification {
+    color: var(--colorblue);
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: var(--nonecolor);
+    background-color: var(--color17);
+}
+
+.usernamelabel_notification {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.detaillabel_notification {
+    color: var(--colorgray);
+    font-size: 16px;
+}
+
+.grouplabel_notification {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.timelabel_notification {
+    color: var(--colorgray);
+    font-size: 16px;
+}
+
+.btnreadall_notification, .btnreadall_notification.active, .btnreadall_notification:hover, .btnreadall_notification:active:focus, .btnreadall_notification:focus {
+    color: var(--colorblue);
+    font-size: 16px;
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+}
+/*********** tabs_notification ***********/
+.tabs_notification {
+    color: var(--color7);
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: var(--nonecolor);
+    background-color: var(--nonecolor);
+}
+
+    .tabs_notification:hover {
+        color: var(--color7);
+        font-size: 16px;
+        border-radius: 25px;
+        border-color: var(--nonecolor);
+        background-color: var(--color0);
+    }
+
+        .tabs_notification.active, .tabs_notification:active:hover, .tabs_notification:active:focus {
+            color: var(--colorblue);
+            font-size: 16px;
+            border-radius: 25px;
+            border-color: var(--nonecolor);
+            background-color: var(--color17);
+        }
+
+
+.userimageprofile_profilelayout {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.action_profilelayout {
+    color: var(--color7);
+    font-size: 20px;
+    background-color: var(--backgroundcolor);
+    border-radius: 7px;
+}
+
+    .action_profilelayout.active, .action_profilelayout:hover, .action_profilelayout:active:focus, .action_profilelayout:focus {
+        color: var(--color7);
+        font-size: 20px;
+        font-weight: bold;
+        background-color: var(--colorwhite);
+        border-radius: 7px;
+    }
+
+
+
+.pagination {
+    background-color: var(--colorwhite);
+    border-radius: 25px;
+    padding: 0.5rem;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+    white-space:nowrap;
+    width:max-content;
+}
+
+.page-item .page-link {
+    color: var(--color7);
+    font-size: 16px;
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+    box-shadow: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+}
+
+.page-item.active .page-link {
+    color: var(--colorwhite);
+    background-color: var(--colorblack);
+    border-color: var(--colorblack);
+}
+
+.page-item.previous .page-link {
+    color: var(--colorblack);
+    font-size: 16px;
+    -webkit-text-stroke: 1px;
+}
+
+.page-item.previous.disabled .page-link {
+    color: var(--color7);
+    font-size: 16px;
+    -webkit-text-stroke: 0px;
+}
+
+.page-item.next .page-link {
+    color: var(--colorblack);
+    font-size: 16px;
+    -webkit-text-stroke:1px;
+}
+
+.page-item.next.disabled .page-link {
+    color: var(--color7);
+    font-size: 16px;
+    -webkit-text-stroke: 0px;
+}
+
+.page-item.first .page-link {
+    color: var(--colorblack);
+    font-size: 16px;
+    font-weight: bold;
+    width: max-content;
+}
+
+.page-item.first.disabled .page-link {
+    color: var(--color7);
+    font-size: 16px;
+    font-weight: initial;
+    width: max-content;
+}
+
+.page-item.last .page-link {
+    color: var(--colorblack);
+    font-size: 16px;
+    font-weight: bold;
+    width: max-content;
+}
+
+.page-item.last.disabled .page-link {
+    color: var(--color7);
+    font-size: 16px;
+    font-weight: initial;
+    width: max-content;
+}
+
+
+/*********** modal site ***********/
+.sitemodal {
+    border-radius: 25px;
+}
+
+    .sitemodal div.modal-dialog div.modal-content {
+        border-radius: 25px;
+        background-color: var(--colorwhite);
+    }
+
+
+.iconerrorsitemodal {
+    color: var(--color28);
+    font-size: 100px;
+}
+
+.labelheadsitemodal {
+    font-size: 20px;
+    color: var(--color28);
+}
+
+.labelsite {
+    color: var(--colorgray);
+    font-size: 18px;
+}
+
+.btncancelsitemodal {
+    background-color: var(--color7);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+    border-color: var(--color7);
+}
+
+    .btncancelsitemodal:hover, .btncancelsitemodal:active:hover, .btncancelsitemodal:active:focus {
+        background-color: var(--color7);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--color7);
+    }
+
+.btnsitemodal {
+    background-color: var(--color12);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 140px;
+    border-color: var(--nonecolor);
+}
+
+    .btnsitemodal:hover, .btnsitemodal:active:hover, .btnsitemodal:active:focus {
+        background-color: var(--color13);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 140px;
+        border-color: var(--nonecolor);
+    }
+
+
+
+
+.custom-tooltip {
+    font-family: 'Kanit', sans-serif;
+    --bs-tooltip-bg: black;
+    --bs-tooltip-color: white;
+    --bs-tooltip-padding-y: 0.7em;
+    --bs-tooltip-padding-x: 1em;
+    --bs-tooltip-max-width: auto;
+    --bs-tooltip-opacity: 0.8;
+    --bs-tooltip-arrow-height: 0;
+    --bs-tooltip-border-radius:25px;
+}
+
+.tooltip {
+    font-family: 'Kanit', sans-serif;
+    --bs-tooltip-bg: black;
+    --bs-tooltip-color: white;
+    --bs-tooltip-padding-y: 0.7em;
+    --bs-tooltip-padding-x: 1em;
+    --bs-tooltip-max-width: auto;
+    --bs-tooltip-border-radius: 15px;
+}
+
+
+.labelheaduserconnection_layout {
+    font-size: 18px;
+    color: var(--color7);
+}
+
+.labelheadcommunity_layout {
+    font-size: 18px;
+    color: var(--color7);
+}
+
+.userimageprofile_layout {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.usernameprofile_layout {
+    font-size: 16px;
+    color: var(--colorblack);
+}
+
+.labelestatus_layout {
+    font-size: 14px;
+    color: var(--colorgray);
+}
+
+.imagecommunity_layout {
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.iconcommunity_layout {
+    color: var(--colorblack);
+    font-size: 26px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color15);
+}
+
+.labelcommunity_layout {
+    font-size: 16px;
+    color: var(--colorblack);
+    border-radius: 15px;
+}
+
+    .labelcommunity_layout:hover {
+        font-size: 16px;
+        color: var(--colorblack);
+        border-radius: 15px;
+        background-color: var(--color15);
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+.iconprofile_layout {
+    color: var(--colorgray);
+}
+
+.dropdownitemprofile_layout {
+    font-size: 18px;
+    color: var(--colorblack);
+    border-radius: 15px;
+}
+
+    .dropdownitemprofile_layout:hover, .dropdownitemprofile_layout:active {
+        font-size: 18px;
+        color: var(--colorblack);
+        background-color: var(--color2);
+        border-radius: 15px;
+    }
+
+.dropdownitemnotification_layout {
+    font-size: 18px;
+    color: var(--colorblack);
+    border-radius: 15px;
+}
+
+    .dropdownitemnotification_layout:hover, .dropdownitemnotification_layout:active {
+        font-size: 18px;
+        color: var(--colorblack);
+        background-color: var(--color2);
+        border-radius: 15px;
+    }
+
+    .dropdownitemnotification_layout.unread {
+        font-size: 18px;
+        color: var(--colorblack);
+        background-color: var(--color17);
+        border-radius: 15px;
+    }
+
+.dropdownitemlogoutprofile_layout {
+    font-size: 18px;
+    color: var(--color7);
+    border-radius: 15px;
+}
+
+    .dropdownitemlogoutprofile_layout:hover, .dropdownitemlogoutprofile_layout:active {
+        font-size: 18px;
+        color: var(--colorwhite);
+        background-color: var(--color1);
+        border-radius: 15px;
+    }
+
+.btnonetime:disabled {
+    filter: brightness(0.95);
+}
+
+.iconsearch_layout {
+    color: var(--color7);
+}
+
+.search_layout {
+    color: var(--colorgray);
+    font-size: 16px;
+    text-indent: 40px;
+    background-color: var(--color0);
+    border-color: var(--color0);
+    padding: 0.75rem;
+    margin-top: -1px;
+    margin-bottom: -1px;
+}
+
+    .search_layout:focus, .search_layout:hover {
+        color: var(--colorgray);
+        font-size: 16px;
+        text-indent: 40px;
+        background-color: var(--color0);
+        border-color: var(--color0);
+        padding: 0.75rem;
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+.btncommunitycollapse_layout {
+
+}
+
+.btncommunitycollapse_layout.active, .btncommunitycollapse_layout:hover, .btncommunitycollapse_layout:active:focus, .btncommunitycollapse_layout:focus {
+
+}
+
+
+.spinner_layout {
+    color:var(--color7);
+    width: 5em;
+    height: 5em;
+}

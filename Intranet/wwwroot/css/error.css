@@ -1,0 +1,14 @@
+﻿.iconerror {
+    font-size: 16vw;
+    color: var(--color9);
+}
+
+.labelheaderror {
+    font-size: 4vw;
+    color: var(--color9);
+}
+
+.labelerror {
+    font-size: 2vw;
+    color: var(--color9);
+}

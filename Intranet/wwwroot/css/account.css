@@ -1,0 +1,203 @@
+﻿.accountcard {
+    background-color: var(--color0);
+    border-color: var(--nonecolor);
+    border-radius: 25px;
+    min-width: 0px;
+    max-width: 493px;
+    min-height: 132px;
+    height: auto;
+    width: calc(100vw - 20px);
+}
+
+.accountcardLogin {
+    background-color: var(--color0);
+    border-color: var(--nonecolor);
+    border-radius: 25px;
+    min-width: 0px;
+    max-width: 493px;
+    min-height: 132px;
+    height: calc(100vh - 80px);
+    width: calc(100vw - 20px);
+}
+
+
+.accounttitle {
+    color: var(--color2);
+    font-size: 4vh;
+}
+
+.accounticon {
+    color: var(--color2);
+    font-size: 100px;
+}
+
+.accountdescriptiontitle {
+    color: var(--color4);
+    font-size: 18px;
+}
+
+.accountlabel {
+    color: var(--colorblack);
+    /*font-size: 2vh;*/
+    font-size: 18px;
+}
+
+.accountlabelforgotpassword {
+    color: var(--color90);
+    font-size: 16px;
+}
+
+
+.accountlabelforgotpassword:hover {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.accountinput {
+    font-size: 18px;
+    border: 1px solid var(--color18);
+    border-radius: 12px;
+    cursor: text;
+    box-shadow: var(--nonecolor);
+}
+
+    .accountinput:focus, .accountinput:hover {
+        font-size: 18px;
+        border-color: var(--color2);
+        border-radius: 12px;
+        box-shadow: var(--nonecolor);
+        cursor: text;
+    }
+
+.accountbtn {
+    color: var(--color0);
+    font-size: 18px;
+    background-color: var(--color2);
+    border-radius: 15px;
+    width: 100%
+}
+
+    .accountbtn:focus, .accountbtn.active, .accountbtn:hover, .accountbtn:active:hover, .accountbtn:active:focus {
+        color: var(--color0);
+        font-size: 18px;
+        background-color: var(--color7);
+        border-radius: 15px;
+        border-color: var(--nonecolor);
+        width: 100%
+    }
+
+.accountbtnshowpassword {
+    color: var(--color2);
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    margin-right: 3.5rem;
+    font-size: 24px;
+}
+
+
+/*********** modal account ***********/
+
+.accountmodal div.modal-dialog div.modal-content {
+    border-radius: 25px 25px 25px 25px;
+    background-color: var(--colorwhite);
+}
+
+.titleaccountmodal {
+    color: var(--color2);
+    font-size: 20px;
+}
+
+.labelaccountmodal {
+    color: var(--color2);
+    font-size: 18px;
+}
+
+.iconerroraccountmodal {
+    color: var(--color2);
+    font-size: 100px;
+}
+
+.iconmaintananceaccountmodal {
+    color: var(--color2);
+    font-size: 140px;
+}
+
+.labelerroraccountmodal {
+    color: var(--color4);
+    font-size: 20px;
+}
+
+.closeaccountmodal {
+    color: var(--color2);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+    .closeaccountmodal:hover, .closeaccountmodal:active:hover, .closeaccountmodal:active:focus {
+        font-size: 30px;
+        color: var(--color7);
+        cursor: pointer;
+        border-color: var(--nonecolor);
+    }
+
+
+.btnaccountmodal {
+    background-color: var(--color2);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btnaccountmodal:hover, .btnaccountmodal:active:hover, .btnaccountmodal:active:focus {
+        background-color: var(--color7);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--color7);
+    }
+
+.policy {
+    background-color: var(--color8);
+    border: 2px dashed var(--color2);
+    border-radius: 25px;
+}
+
+.labelpolicy {
+    color: var(--color2);
+    font-size: 16px;
+}
+
+.iconsuccesspolicy {
+    color: var(--color2);
+    font-size: 22px;
+}
+
+.iconerrorpolicy {
+    color: var(--color13);
+    font-size: 22px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color4);
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color2);
+    border-radius: 25px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color7);
+        border-radius: 25px;
+    }
+
+.labelversion {
+    color: gray;
+    font-size: 14px;
+}

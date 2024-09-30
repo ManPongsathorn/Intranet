@@ -1,0 +1,29 @@
+﻿
+.listservice {
+    color: var(--color2);
+    font-size: 30px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 25px;
+}
+
+.labelhead {
+    color: var(--color2);
+    font-size: 11vw;
+}
+
+.labelsup {
+    color: var(--color2);
+    font-size: 2vw;
+}
+
+.labeldetail {
+    color: var(--color2);
+    font-size: 1.5vw;
+}
+
+.checkservice:disabled {
+    opacity: 1;
+    color:red;
+}
+

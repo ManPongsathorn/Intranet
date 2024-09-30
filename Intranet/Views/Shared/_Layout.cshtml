@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="~/Image/Logo_Intranet.ico" />
+    <title>@ViewData["Title"] - Intranet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    @{
+        if (ViewBag.Title == "Login" || ViewBag.Title == "AdminLogin" || ViewBag.Title == "ChangePassword" || ViewBag.Title == "ForgotPassword")
+        {
+            <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/colorbefore.css" asp-append-version="true" />
+        }
+        else
+        {
+            <link rel="stylesheet" href="~/css/color.css" asp-append-version="true" />
+        }
+        
+        if (ViewBag.Title == "Profile")
+        {
+            <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+        }
+        else if (ViewBag.Title == "Maintain")
+        {
+            <link rel="stylesheet" href="~/css/blogpost.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/maintain.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+        }
+        else if (ViewBag.Title == "Home" || ViewBag.Title == "Corporate" || ViewBag.Title == "Accounting" || ViewBag.Title == "BD" || ViewBag.Title == "Budgeting" || ViewBag.Title == "Human Resources" || ViewBag.Title == "Internal Audit" || ViewBag.Title == "IT" || ViewBag.Title == "Marketing" || ViewBag.Title == "Merchandising" || ViewBag.Title == "Product Development" || ViewBag.Title == "Retail 1" || ViewBag.Title == "Retail 2" || ViewBag.Title == "Supply Chain" || ViewBag.Title == "Warehouse" || ViewBag.Title == "Safety")
+        {
+            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+        }
+        else if (ViewBag.Title == "การร้องเรียน")
+        {
+            <link rel="stylesheet" href="~/css/complaint.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+        }
+        else if (ViewBag.Title == "เพื่อน")
+        {
+            <link rel="stylesheet" href="~/css/friend.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+        }
+        else if (ViewBag.Title == "Message")
+        {
+            <link rel="stylesheet" href="~/css/message.css" asp-append-version="true" />
+            
+        }
+        else if (ViewBag.Title == "Error")
+        {
+            <link rel="stylesheet" href="~/css/error.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+        }
+        else
+        {
+
+        }
+    }
+    <link rel="stylesheet" href="~/css/blogpost.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ckeditor5.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="overflow-hidden">
+    <div class="container-fluid ">
+        <div class="row p-0">
+            @{
+                if (ViewBag.Title == "Login" || ViewBag.Title == "AdminLogin" || ViewBag.Title == "ChangePassword" || ViewBag.Title == "ForgotPassword" || ViewBag.Title == "Service")
+                {
+
+                }
+                else
+                {
+                    <nav class="col-1 navmenu_layout p-0 pe-1 d-lg-block d-none">
+                        <ul class="navbar-nav">
+                            <li class="nav-item ps-4 pe-2 pb-1">
+                                <a class="nav-link " href="#">
+                                    <div class="d-flex justify-content-center">
+                                        <span class="p-2"><img class="logomoshi_layout" src="~/Image/Logo_MoshiMoshi.jpg" /></span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item ps-4 pe-2 pt-0 mainoverflow">
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Home" ? "active" : "")" asp-controller="Blogpost" asp-action="Home" data-bs-toggle="tooltip" data-bs-placement="right" title="Home">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-house"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Home</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Corporate" ? "active" : "")" asp-controller="Blogpost" asp-action="Corporate" data-bs-toggle="tooltip" data-bs-placement="right" title="Corporate">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-building"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Corporate</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Human Resources" ? "active" : "")" asp-controller="Blogpost" asp-action="HumanResources" data-bs-toggle="tooltip" data-bs-placement="right" title="Human Resources">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-people"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Human Resources</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Safety" ? "active" : "")" asp-controller="Blogpost" asp-action="Safety" data-bs-toggle="tooltip" data-bs-placement="right" title="Safety">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-shield-check"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Safety</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "IT" ? "active" : "")" asp-controller="Blogpost" asp-action="IT" data-bs-toggle="tooltip" data-bs-placement="right" title="IT">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-laptop"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">IT</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Accounting" ? "active" : "")" asp-controller="Blogpost" asp-action="Accounting" data-bs-toggle="tooltip" data-bs-placement="right" title="Accounting">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-calculator"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Accounting</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Marketing" ? "active" : "")" asp-controller="Blogpost" asp-action="Marketing" data-bs-toggle="tooltip" data-bs-placement="right" title="Marketing">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-bar-chart-line"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Marketing</span>
+                                    </div>
+                                </a>
+                                @*<a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "BD" ? "active" : "")" asp-controller="Blogpost" asp-action="BD" data-bs-toggle="tooltip" data-bs-placement="right" title="BD">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-buildings"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">BD</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Budgeting" ? "active" : "")" asp-controller="Blogpost" asp-action="Budgeting" data-bs-toggle="tooltip" data-bs-placement="right" title="Budgeting">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-cash-coin"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Budgeting</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Internal Audit" ? "active" : "")" asp-controller="Blogpost" asp-action="InternalAudit" data-bs-toggle="tooltip" data-bs-placement="right" title="Internal Audit">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-check2-circle"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Internal Audit</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Merchandising" ? "active" : "")" asp-controller="Blogpost" asp-action="Merchandising" data-bs-toggle="tooltip" data-bs-placement="right" title="Merchandising">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-shop"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Merchandising</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Product Development" ? "active" : "")" asp-controller="Blogpost" asp-action="ProductDevelopment" data-bs-toggle="tooltip" data-bs-placement="right" title="Product Development">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-box-seam"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Product Development</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Retail 1" ? "active" : "")" asp-controller="Blogpost" asp-action="Retail1" data-bs-toggle="tooltip" data-bs-placement="right" title="Retail 1">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-tag"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Retail 1</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Retail 2" ? "active" : "")" asp-controller="Blogpost" asp-action="Retail2" data-bs-toggle="tooltip" data-bs-placement="right" title="Retail 2">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-tags"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Retail 2</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 mb-2 menu_layout @(ViewBag.Title == "Supply Chain" ? "active" : "")" asp-controller="Blogpost" asp-action="SupplyChain" data-bs-toggle="tooltip" data-bs-placement="right" title="Supply Chain">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-truck"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Supply Chain</span>
+                                    </div>
+                                </a>
+                                <a class="nav-link p-3 pt-1 pb-1 menu_layout @(ViewBag.Title == "Warehouse" ? "active" : "")" asp-controller="Blogpost" asp-action="Warehouse" data-bs-toggle="tooltip" data-bs-placement="right" title="Warehouse">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <span class="p-2"><i class="bi bi-house-door"></i></span>
+                                        <span class="labelmenu_layout pt-2 pb-2 text-nowrap">Warehouse</span>
+                                    </div>
+                                </a>*@
+                            </li>
+                        </ul>
+                    </nav>    
+                }
+            }
+
+            <div class="col p-0">
+                <div class="col">
+                    @{
+                        if (ViewBag.Title == "Login" || ViewBag.Title == "AdminLogin" || ViewBag.Title == "ChangePassword" || ViewBag.Title == "ForgotPassword" || ViewBag.Title == "Service")
+                        {
+
+                        }
+                        else
+                        {
+                            <nav class="navmenu_profilelayout p-3">
+                                <ul class="navbar-nav menu_profilelayout ">
+                                    <li class="nav-item p-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex flex-row align-items-center ms-2">
+                                                <a class="nav-link p-3 pt-1 pb-1 fw-bold title_profilelayout text-nowrap" href="#" data-bs-toggle="tooltip" title="@ViewBag.Title">
+                                                    <span class="pt-2 pb-2 text-nowrap">@ViewBag.Title</span>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div class="input-group">
+                                                    <i class="bi bi-search ps-4 position-absolute iconsearch_layout" style="z-index:2;padding-top:0.8rem;"></i>
+                                                    <input type="search" class="form-control text-nowrap shadow-none search_layout" placeholder="ค้นหาโพสต์" style="z-index: 1;border-radius: 15px;">
+                                                    <input type="hidden" id="checksearchvalue" />
+                                                </div>
+                                                <div class="dropdown d-flex justify-content-center align-items-center">
+                                                    <a class="action_profilelayout m-1 ps-3 pe-0 py-1 d-flex justify-content-center align-items-center custom-tooltip position-relative" asp-controller="Friend" asp-action="Index">
+                                                        <div class="d-flex flex-row align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="ค้นหาเพื่อน">
+                                                            <i class="bi bi-person"></i>                   
+                                                        </div>                                                       
+                                                    </a>
+                                                    <a class="action_profilelayout m-1 px-3 py-1 d-flex justify-content-center align-items-center custom-tooltip position-relative" id="clicknotification" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                                        <div class="d-flex flex-row align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="การแจ้งเตือน">
+                                                            <i class="bi bi-bell"></i>
+                                                            <span class="position-absolute top-0 ms-4 translate-middle badge rounded-circle badge_notofication"></span>
+                                                        </div>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdownmenu_blogpost shadow p-3 pb-0 px-0" style="width: 465px;">
+                                                        <li class="p-3 pt-0">
+                                                            <div class="d-flex align-items-end justify-content-between">
+                                                                <label class="fw-bold headlabel_notification">การแจ้งเตือน</label>
+                                                                <button class="btnreadall_notification" type="button">ทำเครื่องหมายว่าอ่านทั้งหมด</button>
+                                                            </div>
+                                                        </li>
+                                                        <li class="p-3 pt-0">
+                                                            <ul class="nav nav-tabs mb-3" id="notificationtab" role="tablist" style="border-bottom:none">
+                                                                <li class="nav-item me-2" role="presentation">
+                                                                    <button class="btn px-4 text-nowrap tabs_notification active" id="allnotification-tab" data-bs-toggle="tab" data-bs-target="#allnotification-tab-pane" type="button" role="tab" aria-controls="allnotification-tab-pane" aria-selected="true">ทั้งหมด</button>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button class="btn px-4 text-nowrap tabs_notification" id="unreadnotification-tab" data-bs-toggle="tab" data-bs-target="#unreadnotification-tab-pane" type="button" role="tab" aria-controls="unreadnotification-tab-pane" aria-selected="false">ยังไมได้อ่าน</button>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="tab-content" id="notificationtabcontent" >
+                                                                <div class="tab-pane fade show active" id="allnotification-tab-pane" role="tabpanel" aria-labelledby="allnotification-tab" tabindex="0">
+                                                                    <div class="listallnotification" style="overflow-x:hidden;max-height:39vh;">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane fade" id="unreadnotification-tab-pane" role="tabpanel" aria-labelledby="unreadnotification-tab" tabindex="0">
+                                                                    <div class="listunreadnotification" style="overflow-x:hidden;max-height:39vh;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown d-flex justify-content-center align-items-center">
+                                                    <a class="nav-link m-1 px-3 py-1 ps-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <div class="d-flex flex-row align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="บัญชี">
+                                                            @if (ViewBag.ImageProfileUesr != null)
+                                                            {
+                                                                <img class="userimageprofile_profilelayout" src="@Url.Content("~/Image/users/profile/" + ViewBag.ImageProfileUesr)" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <img class="userimageprofile_profilelayout" src="@Url.Content("~/Image/users/profile/" + "ProfileUser_None.jpg")" />
+                                                            }
+                                                            <i class="bi bi-caret-down-fill ms-2 iconprofile_layout"></i>
+                                                        </div>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdownmenu_blogpost shadow p-3 px-0">
+                                                        <li class="p-3 pt-0">
+                                                            <a class="dropdown-item dropdownitemprofile_layout p-3 shadow" asp-controller="Account" asp-action="Profile" asp-route-id="@ViewBag.UserId">
+                                                                @if (ViewBag.ImageProfileUesr != null)
+                                                                {
+                                                                    <img class="userimageprofile_profilelayout" src="@Url.Content("~/Image/users/profile/" + ViewBag.ImageProfileUesr)" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img class="userimageprofile_profilelayout" src="@Url.Content("~/Image/users/profile/" + "ProfileUser_None.jpg")" />
+                                                                }
+                                                                <span class="ms-2">@ViewBag.UserName</span>
+                                                            </a>
+                                                        </li>
+                                                        @if (User.IsInRole("Admin"))
+                                                        {
+                                                            <li class="p-3 pt-0">
+                                                                <a class="dropdown-item dropdownitemlogoutprofile_layout p-3" asp-controller="Admin" asp-action="Maintain">
+                                                                    <i class="bi bi-tools me-2"></i><span class="ms-2">Maintain</span>
+                                                                </a>
+                                                            </li>                                                            
+                                                        }
+                                                        <li class="p-3 py-0">
+                                                            <form id="Form_Logout" method="post" asp-controller="Account" asp-action="Logout">
+                                                                <a class="dropdown-item dropdownitemlogoutprofile_layout p-3" href="javascript:{}" onclick="$('#Form_Logout').submit();"><i class="bi bi-door-open me-2"></i>ออกจากระบบ</a>
+                                                            </form>
+                                                            <input type="hidden" id="userid_profilelayout" value="@ViewBag.UserId">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        }
+                    }
+                </div>
+                <div class="col row m-0">
+                    <main role="main" class="col-9 p-4 ms-4 mainbody" style="overflow-x:hidden;">
+                        @RenderBody()
+                        <div class="modal fade sitemodal" id="IdleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content p-3">
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                            <i class="bi bi-exclamation-circle iconerrorsitemodal rounded-circle"></i>
+                                        </div>
+                                        <div class="mt-0 text-center">
+                                            <label class="labelheadsitemodal fw-bold">ออกจากระบบอัตโนมัติ</label>
+                                        </div>
+                                        <div class="mt-3 text-center">
+                                            <label class="labelsite">เนื่องจากคุณไม่มีการตอบโต้หรือการเคลื่อนไหวใดๆ 15 นาที</label>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-3 mb-3">
+                                        <button class="btn p-2 ms-2 btncancelsitemodal countstop" type="button" data-bs-dismiss="modal" aria-label="Close">อยู่ในหน้านี้ต่อ</button>
+                                        <button class="btn p-2 ms-2 btnsitemodal countreset" type="submit" id="countnumberidle" onclick="Form_Logout()" data-bs-dismiss="modal"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    @if (ViewBag.Title == "Login" || ViewBag.Title == "AdminLogin" || ViewBag.Title == "ChangePassword" || ViewBag.Title == "ForgotPassword" || ViewBag.Title == "Service")
+                    {
+
+                    }
+                    else
+                    {
+                        <div class="col" style="overflow-x:hidden;">
+                            <div class="p-3 py-0 mt-0" style="background-color:var(--colorwhite);">
+                                <label class="fw-bold mb-2 ms-3 labelheadcommunity_layout">เมนูทางลัด</label>
+                                <div class="ListCommunityLayout" style="overflow-x:hidden;height:21vh;">
+                                    <div class="mt-2 p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://www.moshimoshi.co.th/th/home" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Moshi Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo MoshiMoshi.jpg" style="background-color:var(--color15);" />Moshi Moshi
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://ada.moshimoshijp.co.th:81/Adasoft/AdaPos5.0-00001/AdaStoreBack/AdaPos5.0-00001/login" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Adasoft Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Adasoft.png" style="background-color:var(--color15);" />Adasoft Moshi
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://ada.moshimoshijp.co.th:81/Adasoft/AdaMember/login" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Adasoft Moshi Member">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Adasoft.png" style="background-color:var(--color15);" />Adasoft Moshi Member
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://adagiant.moshimoshijp.co.th:8080/AdaSoft/Giant/AdaPos5.0/AdaStoreBack/login" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Adasoft Giant">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Adasoft.png" style="background-color:var(--color15);" />Adasoft Giant
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://adagiant.moshimoshijp.co.th:8080/AdaSoft/Giant/AdaMember/login" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Adasoft Giant Member">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Adasoft.png" style="background-color:var(--color15);" />Adasoft Giant Member
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://campaign-management.buzzebees.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Buzzebees Campaign">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Buzzebees.png" style="background-color:var(--color15);" />Buzzebees Campaign
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://is.moshimoshistore.com/Login/Index" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="IS CODE Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo IS CODE.png" style="background-color:var(--color15);" />IS CODE
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://ap-southeast-1.quicksight.aws.amazon.com/sn/auth/signin?redirect_uri=https%3A%2F%2Fap-southeast-1.quicksight.aws.amazon.com%2Fsn%2Fstart%2Fanalyses%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Amazon QuickSign">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Amazon Quicksight.png" style="background-color:var(--color15);" />Amazon QuickSign
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://helpdesk.moshimoshijp.co.th:8432/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="IT Helpdesk">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo IT Helpdesk.png" style="background-color:var(--color15);" />IT Helpdesk
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="http://meetingroom.moshimoshijp.co.th:3305/meeting/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Meeting Room">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo MoshiMoshi.jpg" style="background-color:var(--color15);" />Meeting Room
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://hr.moshimoshijp.co.th:8081/WebTime/default1.aspx" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Tigersoft WebTimeOnline">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Tigersoft.png" style="background-color:var(--color15);" />Tigersoft WebTimeOnline
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://hr.moshimoshijp.co.th:8081/WebTime/default1m.aspx" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Tigersoft WebTimeOnline (Mobile)">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Tigersoft.png" style="background-color:var(--color15);" />Tigersoft WebTimeOnline (Mobile)
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://hr.moshimoshijp.co.th:8081/webslip/weblogin.aspx" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Tigersoft Payslip">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Tigersoft.png" style="background-color:var(--color15);" />Tigersoft Payslip
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " asp-controller="Blogpost" asp-action="Complaint" data-bs-toggle="tooltip" data-bs-placement="left" title="การร้องเรียน">
+                                            <div class="d-flex justify-content-center align-items-center iconcommunity_layout me-3">
+                                                <i class="bi bi-clipboard-check"></i>
+                                            </div>
+                                            <span>การร้องเรียน</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 py-0 mt-3" style="background-color:var(--colorwhite);">
+                                <label class="fw-bold mb-2 ms-3 labelheadcommunity_layout">สื่อออนไลน์</label>
+                                <div class="ListCommunityLayout" style="overflow-x:hidden;height:14.2vh;">
+                                    <div class="mt-2 p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://www.facebook.com/moshimoshi.jp/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Facebook Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Facebook.jpg" style="background-color:var(--color15);" />Facebook Moshi
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://www.instagram.com/moshimoshi.jp/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Instagram Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Instagram.jpg" style="background-color:var(--color15);" />Instagram Moshi
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://line.me/R/ti/p/%40kpg4310y" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Line Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Line.jpg" style="background-color:var(--color15);" />Line Moshi
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="@("https://www.tiktok.com/@moshimoshi.official")" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Tiktok Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Tiktok.jpg" style="background-color:var(--color15);" />Tiktok Moshi
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://twitter.com/MoshiMoshiTH" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Twitter Moshi">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Twitter.jpg" style="background-color:var(--color15);" />Twitter Moshi
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 py-0 mt-3" style="background-color:var(--colorwhite);">
+                                <label class="fw-bold mb-2 ms-3 labelheadcommunity_layout">ช้อปปิ้งออนไลน์</label>
+                                <div class="ListCommunityLayout" style="overflow-x:hidden;height:14.2vh;">
+                                    <div class="mt-2 p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://www.lazada.co.th/shop/moshi-moshi-official-store/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Lazada Moshi Official store">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Lazada.jpg" style="background-color:var(--color15);" />Lazada Moshi Official store
+                                        </a>
+                                    </div>
+                                    <div class="p-2 pt-0">
+                                        <a class="d-flex flex-row align-items-center text-decoration-none labelcommunity_layout fw-bold p-2 " href="https://shopee.co.th/moshimoshi_officialshop" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" title="Shopee Moshi Official store">
+                                            <img class="imagecommunity_layout me-3" src="/Image/community/Logo Shopee.jpg" style="background-color:var(--color15);" />Shopee Moshi Official store
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 my-0 ms-3" style="background-color:var(--colorwhite);">
+                                <label class="fw-bold mb-2 labelheaduserconnection_layout"></label>
+                                <div class="ListUserConnectionLayout" style="overflow-x:hidden;height:15vh;">
+                                </div>
+                                <div class="UserLoadConnectionLayout text-center" hidden>
+                                    <div class="spinner-border spinner_layout mt-5" role="status">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2022 - Helpdesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>*@
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/translations/th.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.6.0/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.1/pagination/full_numbers_no_ellipses.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+
+    @{
+        if (ViewBag.Title == "Login" || ViewBag.Title == "AdminLogin" || ViewBag.Title == "ChangePassword" || ViewBag.Title == "ForgotPassword" || ViewBag.Title == "Service")
+        {
+
+        }
+        else
+        {
+            <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+            <script src="~/js/api.js" asp-append-version="true"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            <script type="module" src="~/js/connection.js" asp-append-version="true"></script>
+            // <script type="module" src="~/js/blogpost.js" asp-append-version="true"></script>
+            <script src="~/js/idle.js" asp-append-version="true"></script>
+            
+        }
+
+        if (ViewBag.Title == "Login" || ViewBag.Title == "AdminLogin" || ViewBag.Title == "ChangePassword" || ViewBag.Title == "ForgotPassword")
+        {
+            <script src="~/js/account.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "Profile")
+        {
+            <script src="~/js/profile.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "Mywork")
+        {
+            <script src="~/js/mywork.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "เพื่อน")
+        {
+            <script src="~/js/friend.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "Maintain")
+        {
+            <script src="~/js/maintain.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "Message")
+        {
+            <script src="~/js/chat.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "Report")
+        {
+            <script src="~/js/report.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "Service")
+        {
+            <script src="~/js/service.js" asp-append-version="true"></script>
+        }
+        else if (ViewBag.Title == "การร้องเรียน")
+        {
+            <script src="~/js/complaint.js" asp-append-version="true"></script>
+        }
+        else
+        {
+
+        }
+
+
+        <script src="~/js/Test.js" asp-append-version="true"></script>
+
+
+    }
+
+    <script src="~/lib/timeago/moment.js" asp-append-version="true"></script>
+    <script src="~/lib/timeago/locale/th.js" charset="utf-8"></script>
+    <script src="~/lib/timeago/livestamp.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

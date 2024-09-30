@@ -1,0 +1,627 @@
+﻿/*********** tabs ***********/
+/*.tabs {
+    color: var(--color1);
+    line-height: 20px;
+}
+
+    .tabs.active {
+        color: var(--colorblack);
+        border-bottom: 2px solid var(--colorblack);
+        line-height: 20px;
+    }
+
+    .tabs:hover {
+        color: var(--colorblack);
+        border-bottom: 2px solid var(--colorblack);
+        line-height: 20px;
+    }*/
+
+
+
+.labelusername_friend {
+    font-size: 16px;
+    color: var(--colorblack);    
+}
+
+.labeldetail_friend {
+    font-size: 16px;
+    color: var(--color7);
+}
+
+.userimage_friend {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+
+
+/*********** usermanage ***********/
+.headusermanage {
+    color: var(--colorwhite);
+    font-size: 25px;
+}
+
+.categoryusermanage {
+    border-radius: 15px;
+    background-color: var(--colorblack);
+}
+
+
+.btncategoryusermanageAll {
+    color: var(--colordarkpastel1);
+    font-size: 16px;
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanageAll:focus, .btncategoryusermanageAll.active, .btncategoryusermanageAll:hover, .btncategoryusermanageAll:active:hover, .btncategoryusermanageAll:active:focus {
+        color: var(--colordarkpastel1);
+        font-size: 16px;
+        border-color: var(--colordarkpastel1);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+
+.filterfromtodatelabelusermanage {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.filtericonsearchusermanage {
+    color: var(--color7);
+}
+
+.filtersearchusermanage {
+    color: var(--colorgray);
+    font-size: 16px;
+    text-indent: 40px;
+    background-color: var(--color0);
+    border-color: var(--color0);
+    padding: 0.75rem;
+    margin-top: -1px;
+    margin-bottom: -1px;
+}
+
+    .filtersearchusermanage:focus, .filtersearchusermanage:hover {
+        color: var(--colorgray);
+        font-size: 16px;
+        text-indent: 40px;
+        background-color: var(--color0);
+        border-color: var(--color0);
+        padding: 0.75rem;
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+.filterfromtodateusermanage {
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    cursor: text;
+    padding: 0.75rem;
+    max-width: 135px;
+}
+
+    .filterfromtodateusermanage:focus, .filterfromtodateusermanage:hover {
+        font-size: 16px;
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        border-radius: 15px;
+        cursor: text;
+        padding: 0.75rem;
+        max-width: 135px;
+    }
+
+.filtercreateusermanage {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--color12);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+}
+
+    .filtercreateusermanage:hover, .filtercreateusermanage:active:hover, .filtercreateusermanage:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color13);
+        border-color: var(--nonecolor);
+        border-radius: 15px;
+    }
+
+.filterusermanage {
+    color: var(--colorblack);
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+    .filterusermanage:hover, .filterusermanage:active:hover, .filterusermanage:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--colorblack);
+        border-color: var(--colorblack);
+        border-radius: 15px;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+.categoryusermanagemobile {
+    border-color: var(--nonecolor);
+}
+
+.btncategoryusermanagemobileAll {
+    color: var(--colordarkpastel1);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileAll:focus, .btncategoryusermanagemobileAll:hover, .btncategoryusermanagemobileAll.active, .btncategoryusermanagemobileAll:active:hover, .btncategoryusermanagemobileAll:active:focus {
+        color: var(--colordarkpastel1);
+        font-size: 16px;
+        border-color: var(--colordarkpastel1);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryusermanagemobileusermanage {
+    color: var(--colordarkpastel2);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileusermanage:focus, .btncategoryusermanagemobileusermanage:hover, .btncategoryusermanagemobileusermanage.active, .btncategoryusermanagemobileusermanage:active:hover, .btncategoryusermanagemobileusermanage:active:focus {
+        color: var(--colordarkpastel2);
+        font-size: 16px;
+        border-color: var(--colordarkpastel2);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryusermanagemobileApproveusermanage {
+    color: var(--colordarkpastel3);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileApproveusermanage:focus, .btncategoryusermanagemobileApproveusermanage:hover, .btncategoryusermanagemobileApproveusermanage.active, .btncategoryusermanagemobileApproveusermanage:active:hover, .btncategoryusermanagemobileApproveusermanage:active:focus {
+        color: var(--colordarkpastel3);
+        font-size: 16px;
+        border-color: var(--colordarkpastel3);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryusermanagemobileProcess {
+    color: var(--colordarkpastel4);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileProcess:focus, .btncategoryusermanagemobileProcess:hover, .btncategoryusermanagemobileProcess.active, .btncategoryusermanagemobileProcess:active:hover, .btncategoryusermanagemobileProcess:active:focus {
+        color: var(--colordarkpastel4);
+        font-size: 16px;
+        border-color: var(--colordarkpastel4);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryusermanagemobileDone {
+    color: var(--colordarkpastel5);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileDone:focus, .btncategoryusermanagemobileDone:hover, .btncategoryusermanagemobileDone.active, .btncategoryusermanagemobileDone:active:hover, .btncategoryusermanagemobileDone:active:focus {
+        color: var(--colordarkpastel5);
+        font-size: 16px;
+        border-color: var(--colordarkpastel5);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryusermanagemobileClose {
+    color: var(--colordarkpastel6);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileClose:focus, .btncategoryusermanagemobileClose:hover, .btncategoryusermanagemobileClose.active, .btncategoryusermanagemobileClose:active:hover, .btncategoryusermanagemobileClose:active:focus {
+        color: var(--colordarkpastel6);
+        font-size: 16px;
+        border-color: var(--colordarkpastel6);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryusermanagemobileCancel {
+    color: var(--colordarkpastel7);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryusermanagemobileCancel:focus, .btncategoryusermanagemobileCancel:hover, .btncategoryusermanagemobileCancel.active, .btncategoryusermanagemobileCancel:active:hover, .btncategoryusermanagemobileCancel:active:focus {
+        color: var(--colordarkpastel7);
+        font-size: 16px;
+        border-color: var(--colordarkpastel7);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.tablebodyusermanage {
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+}
+
+.table_friend {
+    color: var(--color7);
+    font-size: 16px;
+}
+
+.profile_friend {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.labelaction_friend {
+    color: var(--colorblack);
+    font-size: 16px;
+    border-color: var(--nonecolor);
+}
+
+    .labelaction_friend:focus, .labelaction_friend:hover {
+        color: var(--colorblack);
+        font-size: 16px;
+        font-weight: bold;
+        border-color: var(--nonecolor);
+    }
+
+.tablelabelmoreusermanage {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.tablelabelselectmoreusermanage {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-radius: 10px;
+}
+
+
+/*********** modal usermanages ***********/
+.iconerrorusermanagemodal {
+    color: var(--colorblack);
+    font-size: 100px;
+}
+
+.labelerrorusermanagemodal {
+    color: var(--color7);
+    font-size: 20px;
+}
+
+.titlefilterusermanagemodal {
+    color: var(--colorblack);
+    font-size: 20px;
+}
+
+.filterfromtodatelabelusermanagemodal {
+    color: var(--colorblack);
+    font-size: 18px;
+}
+
+.filterfromtodateusermanagemodal {
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    cursor: text;
+    padding: 0.75rem;
+}
+
+    .filterfromtodateusermanagemodal:focus, .filterfromtodateusermanagemodal:hover {
+        font-size: 16px;
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        border-radius: 15px;
+        cursor: text;
+        padding: 0.75rem;
+    }
+
+.inputfilterusermanagemodal {
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: text;
+}
+
+    .inputfilterusermanagemodal:focus, .inputfilterusermanagemodal:hover {
+        border-radius: 15px;
+        cursor: text;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.selectfilterusermanagemodal {
+    font-size: 16px;
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23272727' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+    .selectfilterusermanagemodal:focus, .selectfilterusermanagemodal:hover {
+        font-size: 16px;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-radius: 15px;
+        cursor: pointer;
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.closefilterusermanagemodal {
+    color: var(--colorblack);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+    .closefilterusermanagemodal:hover {
+        font-size: 30px;
+        color: var(--color7);
+        cursor: pointer;
+    }
+
+.btncancelfilterusermanagemodal {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--colorblack);
+    border-radius: 15px;
+    width: 100%;
+}
+
+    .btncancelfilterusermanagemodal:focus, .btncancelfilterusermanagemodal:hover, .btncancelfilterusermanagemodal:active:hover, .btncancelfilterusermanagemodal:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color7);
+        border-color: var(--color7);
+        border-radius: 15px;
+        width: 100%;
+    }
+
+.btnokfilterusermanagemodal {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--color5);
+    border-color: var(--color5);
+    border-radius: 15px;
+    width: 100%;
+}
+
+    .btnokfilterusermanagemodal:focus, .btnokfilterusermanagemodal:hover, .btnokfilterusermanagemodal:active:hover, .btnokfilterusermanagemodal:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color6);
+        border-color: var(--color6);
+        border-radius: 15px;
+        width: 100%;
+    }
+
+.usermanagemodal {
+    border-radius: 25px;
+}
+
+    .usermanagemodal div.modal-dialog div.modal-content {
+        border-radius: 25px;
+        background-color: var(--colorwhite);
+    }
+
+.titleusermanagemodal {
+    color: var(--colorblack);
+    font-size: 20px;
+}
+
+.closeusermanagemodal {
+    color: var(--colorblack);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+    .closeusermanagemodal:hover, .closeusermanagemodal:active:hover, .closeusermanagemodal:active:focus {
+        font-size: 30px;
+        color: var(--color7);
+        cursor: pointer;
+        border-color: var(--nonecolor);
+    }
+
+.labelusermanagemodal {
+    font-size: 18px;
+    color: var(--colorblack);
+}
+
+.form-control:disabled, .form-control:disabled:hover {
+    background: var(--colorblack6);
+    border-color: var(--colorblack);
+    cursor: default;
+}
+
+
+.form-select:disabled {
+    background: var(--colorblack6);
+    border-color: var(--colorblack);
+    cursor: default;
+}
+
+
+.selectusermanagemodal {
+    font-size: 16px;
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23272727' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+    .selectusermanagemodal:focus, .selectcreateusermanagemodal:hover {
+        font-size: 16px;
+        color: var(--colorblack);
+        background-color: var(--color0);
+        border-radius: 15px;
+        cursor: pointer;
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.inputusermanagemodal {
+    font-size: 16px;
+    color: var(--colorwhite);
+    background-color: var(--colorblack);
+    border-radius: 15px;
+    cursor: text;
+}
+
+    .inputusermanagemodal:focus, .inputusermanagemodal:hover {
+        font-size: 16px;
+        color: var(--colorwhite);
+        background-color: var(--colorblack);
+        border-radius: 15px;
+        cursor: text;
+        border-color: var(--colorwhite);
+    }
+
+.inputdateusermanagemodal {
+    border-radius: 15px;
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+}
+
+    .inputdateusermanagemodal:focus, .inputdateusermanagemodal:hover {
+        border-radius: 15px;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.textareausermanagemodal {
+    font-size: 16px;
+    color: var(--colorwhite);
+    background-color: var(--colorblack);
+    border-radius: 15px;
+    height: 150px;
+    cursor: text;
+}
+
+    .textareausermanagemodal:focus, .textareusermanagemodal:hover {
+        font-size: 16px;
+        color: var(--colorwhite);
+        background-color: var(--colorblack);
+        border-radius: 15px;
+        height: 150px;
+        cursor: text;
+        border-color: var(--colorwhite);
+        box-shadow: none;
+    }
+
+.btncancelusermanagemodal {
+    background-color: var(--color7);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btncancelusermanagemodal:hover, .btncancelusermanagemodal:active:hover, .btncancelusermanagemodal:active:focus {
+        background-color: var(--color7);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--colorblack9);
+    }
+
+.btnusermanagemodal {
+    background-color: var(--color12);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btnusermanagemodal:hover, .btnusermanagemodal:active, .btnusermanagemodal:active:hover, .btnusermanagemodal:active:focus {
+        background-color: var(--color13);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--color13);
+    }
+
+
+
+.btnerrorusermanagemodal {
+    background-color: var(--colorblack);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btnerrorusermanagemodal:hover, .btnerrorusermanagemodal:active:hover, .btnerrorusermanagemodal:active:focus {
+        background-color: var(--color7);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--color7);
+    }
+
+.form-switch .form-check-input:checked {
+    background-color: var(--color30);
+    border-color: var(--color30);
+}
+
+
+.form-switch .form-check-input:focus:checked {
+    background-color: var(--colorblue);
+    border-color: var(--colorblue);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:focus {
+    box-shadow: none;
+    border-color: #adb5bd;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23adb5bd'/%3e%3c/svg%3e");
+}

@@ -1,0 +1,958 @@
+﻿/*********** media screen website ***********/
+@media (max-width: 991.98px) {
+    div.mainbody {
+        height: 72.5vh;
+        margin-top: 3.7rem;
+    }
+}
+
+@media (min-width: 992px) {
+    div.mainbody {
+        height: 96.5vh;
+    }
+}
+
+/*********** webkit-scrollbar ***********/
+@media (max-width: 991.98px) {
+    ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: none;
+        border-radius: 25px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: none;
+        border-radius: 25px;
+    }
+}
+
+@media (min-width: 992px) {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: var(--nonecolor);
+        border-radius: 25px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--nonecolor);
+        border-radius: 25px;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--nonecolor);
+            border-radius: 25px;
+        }
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--nonecolor);
+}
+
+
+.cardprofile {
+    background-color: var(--colorwhite);
+    border-color: var( --nonecolor);
+    border-radius: 25px;
+}
+
+.imgprofile {
+    border-radius: 25px;
+    width: 15vw;
+    height: 15vw;
+    min-height:100px;
+    min-width:100px;
+    object-fit: cover;
+    border: 5px solid var(--colorwhite);
+}
+
+.imgprofilemodal {
+    border-radius: 25px;
+    width: 13vw;
+    height: 13vw;
+    min-height: 100px;
+    min-width: 100px;
+    object-fit: cover;
+}
+
+.avatarimgprofilemodal {
+    border-radius: 25px;
+    width: 10vw;
+    height: 10vw;
+    min-height: 100px;
+    min-width: 100px;
+    object-fit: cover;
+    border: 5px solid var(--colorwhite);
+}
+
+.avatarbackgroundprofilemodal {
+    border-radius: 25px;
+    width: 10vw;
+    height: 10vw;
+    min-height: 100px;
+    min-width: 100px;
+    object-fit: cover;
+    border: 5px solid var(--colorwhite);
+}
+
+.backgroundprofile {
+    border-radius:25px;
+    width:100%;
+    max-height:370px;
+    min-height:150px;
+    object-fit:cover;
+
+}
+
+.topprofile {
+    z-index: 1;
+    margin-top:-30px;
+}
+
+.labelhead1profile {
+    color: var(--colorblack);
+    font-size: 3vw;
+}
+
+.labelhead2profile {
+    color: var(--colorblack);
+    font-size: 2vw;
+}
+
+.labelsubheadprofile {
+    color: var(--color3);
+    font-size: 16px;
+}
+
+.labelprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.btncollapseprofile {
+    font-size: 18px;
+    color: var(--colorblack);
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+}
+
+    .btncollapseprofile:hover, .btncollapseprofile:active:focus, .btncollapseprofile:active:hover {
+        font-size: 18px;
+        color: var(--colorblack);
+        background-color: var(--nonecolor);
+        border-color: var(--nonecolor);
+    }
+
+
+.iconArrowProfile {
+    color: var(--color3);
+    font-size: 18px;
+}
+
+
+.editprofile{
+    color:var(--color5);
+    font-size:18px;
+}
+
+.topeditprofile {
+    z-index: 1;
+    margin-top: -35px;
+}
+
+
+
+.dropdown-menu {
+    background-color: var(--colorwhite);
+}
+
+.moreprofile {
+    color: var(--colorwhite );
+    font-size: 26px;
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+    border-radius: 25px;
+}
+
+    .moreprofile:focus, .moreprofile:hover, .moreprofile.show, .moreprofile:active:hover, .moreprofile:active:focus {
+        color: var(--colorwhite);
+        font-size: 26px;
+        background-color: var(--nonecolor);
+        border-color: var(--nonecolor);
+        border-radius: 25px;
+    }
+
+.moreimageprofile {
+    color: var(--colorwhite);
+    font-size: 26px;
+    background-color: var(--colorblack);
+    border-color: var(--colorblack);
+    border-radius: 25px;
+}
+
+    .moreimageprofile:focus, .moreimageprofile:hover, .moreimageprofile.show, .moreimageprofile:active:hover, .moreimageprofile:active:focus {
+        color: var(--colorwhite);
+        font-size: 26px;
+        background-color: var(--colorblack);
+        border-color: var(--colorblack);
+        border-radius: 25px;
+    }
+
+.dropdownavatarprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .dropdownavatarprofile:focus, .dropdownavatarprofile:hover {
+        color: var(--colorblack7);
+        font-size: 16px;
+        background-color: var(--color15);
+    }
+
+.dropdownchooseprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .dropdownchooseprofile:focus, .dropdownchooseprofile:hover {
+        color: var(--colorblack7);
+        font-size: 16px;
+        background-color: var(--color15);
+    }
+
+.dropdowneditprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .dropdowneditprofile:focus, .dropdowneditprofile:hover {
+        color: var(--colorblack7);
+        font-size: 16px;
+        background-color: var(--color15);
+    }
+
+.dropdownextendprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .dropdownextendprofile:focus, .dropdownextendprofile:hover {
+        color: var(--colorblack7);
+        font-size: 16px;
+        background-color: var(--color15);
+    }
+
+.dropdowndeleteprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+    .dropdowndeleteprofile:focus, .dropdowndeleteprofile:hover {
+        color: var(--colorblack);
+        font-size: 16px;
+        background-color: var(--color15);
+    }
+/*********** profile ***********/
+.headprofile {
+    color: var(--colorwhite);
+    font-size: 25px;
+}
+
+.categoryprofile {
+    border-radius: 15px;
+    background-color: var(--colorblack);
+}
+
+
+.btncategoryprofileAll {
+    color: var(--colordarkpastel1);
+    font-size: 16px;
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofileAll:focus, .btncategoryprofileAll.active, .btncategoryprofileAll:hover, .btncategoryprofileAll:active:hover, .btncategoryprofileAll:active:focus {
+        color: var(--colordarkpastel1);
+        font-size: 16px;
+        border-color: var(--colordarkpastel1);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+
+.filterfromtodatelabelprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.filtericonsearchprofile {
+    color: var(--colorblack);
+}
+
+.filtersearchprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+    text-indent: 40px;
+    background-color: var(--colorwhite);
+    border-color: var(--colorwhite);
+    padding: 0.75rem;
+    margin-top: -1px;
+    margin-bottom: -1px;
+}
+
+    .filtersearchprofile:focus, .filtersearchprofile:hover {
+        color: var(--colorblack);
+        font-size: 16px;
+        text-indent: 40px;
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        padding: 0.75rem;
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+.filterfromtodateprofile {
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    cursor: text;
+    padding: 0.75rem;
+    max-width: 135px;
+}
+
+    .filterfromtodateprofile:focus, .filterfromtodateprofile:hover {
+        font-size: 16px;
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        border-radius: 15px;
+        cursor: text;
+        padding: 0.75rem;
+        max-width: 135px;
+    }
+
+.filtercreateprofile {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--colorblack);
+    border-radius: 15px;
+    padding: 0.75rem;
+}
+
+    .filtercreateprofile:hover, .filtercreateprofile:active:hover, .filtercreateprofile:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color7);
+        border-color: var(--color7);
+        border-radius: 15px;
+        padding: 0.75rem;
+    }
+
+.filterprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+    .filterprofile:hover, .filterprofile:active:hover, .filterprofile:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--colorblack);
+        border-color: var(--colorblack);
+        border-radius: 15px;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+.categoryprofilemobile {
+    border-color: var(--nonecolor);
+}
+
+.btncategoryprofilemobileAll {
+    color: var(--colordarkpastel1);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileAll:focus, .btncategoryprofilemobileAll:hover, .btncategoryprofilemobileAll.active, .btncategoryprofilemobileAll:active:hover, .btncategoryprofilemobileAll:active:focus {
+        color: var(--colordarkpastel1);
+        font-size: 16px;
+        border-color: var(--colordarkpastel1);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryprofilemobileprofile {
+    color: var(--colordarkpastel2);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileprofile:focus, .btncategoryprofilemobileprofile:hover, .btncategoryprofilemobileprofile.active, .btncategoryprofilemobileprofile:active:hover, .btncategoryprofilemobileprofile:active:focus {
+        color: var(--colordarkpastel2);
+        font-size: 16px;
+        border-color: var(--colordarkpastel2);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryprofilemobileApproveprofile {
+    color: var(--colordarkpastel3);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileApproveprofile:focus, .btncategoryprofilemobileApproveprofile:hover, .btncategoryprofilemobileApproveprofile.active, .btncategoryprofilemobileApproveprofile:active:hover, .btncategoryprofilemobileApproveprofile:active:focus {
+        color: var(--colordarkpastel3);
+        font-size: 16px;
+        border-color: var(--colordarkpastel3);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryprofilemobileProcess {
+    color: var(--colordarkpastel4);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileProcess:focus, .btncategoryprofilemobileProcess:hover, .btncategoryprofilemobileProcess.active, .btncategoryprofilemobileProcess:active:hover, .btncategoryprofilemobileProcess:active:focus {
+        color: var(--colordarkpastel4);
+        font-size: 16px;
+        border-color: var(--colordarkpastel4);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryprofilemobileDone {
+    color: var(--colordarkpastel5);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileDone:focus, .btncategoryprofilemobileDone:hover, .btncategoryprofilemobileDone.active, .btncategoryprofilemobileDone:active:hover, .btncategoryprofilemobileDone:active:focus {
+        color: var(--colordarkpastel5);
+        font-size: 16px;
+        border-color: var(--colordarkpastel5);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryprofilemobileClose {
+    color: var(--colordarkpastel6);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileClose:focus, .btncategoryprofilemobileClose:hover, .btncategoryprofilemobileClose.active, .btncategoryprofilemobileClose:active:hover, .btncategoryprofilemobileClose:active:focus {
+        color: var(--colordarkpastel6);
+        font-size: 16px;
+        border-color: var(--colordarkpastel6);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.btncategoryprofilemobileCancel {
+    color: var(--colordarkpastel7);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+    .btncategoryprofilemobileCancel:focus, .btncategoryprofilemobileCancel:hover, .btncategoryprofilemobileCancel.active, .btncategoryprofilemobileCancel:active:hover, .btncategoryprofilemobileCancel:active:focus {
+        color: var(--colordarkpastel7);
+        font-size: 16px;
+        border-color: var(--colordarkpastel7);
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
+.tableprofile {
+    border-spacing: 0px 15px;
+    border-collapse: separate;
+    white-space: nowrap;
+}
+
+.tablebodyprofile {
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+}
+
+.tablelabelprofile {
+    color: var(--color3);
+    font-size: 16px;
+}
+
+.tabledocprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+    border-color: var(--nonecolor);
+}
+
+    .tabledocprofile:focus, .tabledocprofile:hover {
+        color: var(--colorblack);
+        font-size: 16px;
+        font-weight: bold;
+        border-color: var(--nonecolor);
+    }
+
+.tablelabelmoreprofile {
+    color: var(--colorblack);
+    font-size: 16px;
+}
+
+.tablelabelselectmoreprofile {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-radius: 10px;
+}
+
+
+/*********** modal profiles ***********/
+
+@media (min-width: 768px) {
+    .filterprofilemodal div.modal-dialog div.modal-content {
+        border-radius: 25px 25px 25px 25px;
+        background-color: var(--colorwhite);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .filterprofilemodal div.modal-dialog {
+        height: 57.8%;
+        margin-top: 30%;
+        position: absolute;
+        bottom: 0;
+    }
+
+        .filterprofilemodal div.modal-dialog div.modal-content {
+            border-radius: 25px 25px 0px 0px;
+            background-color: var(--colorwhite);
+        }
+}
+
+.titlefilterprofilemodal {
+    color: var(--colorblack);
+    font-size: 20px;
+}
+
+.filterfromtodatelabelprofilemodal {
+    color: var(--colorblack);
+    font-size: 18px;
+}
+
+.filterfromtodateprofilemodal {
+    font-size: 16px;
+    background-color: var(--colorwhite);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    cursor: text;
+    padding: 0.75rem;
+}
+
+    .filterfromtodateprofilemodal:focus, .filterfromtodateprofilemodal:hover {
+        font-size: 16px;
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        border-radius: 15px;
+        cursor: text;
+        padding: 0.75rem;
+    }
+
+.inputfilterprofilemodal {
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: text;
+}
+
+    .inputfilterprofilemodal:focus, .inputfilterprofilemodal:hover {
+        border-radius: 15px;
+        cursor: text;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.selectfilterprofilemodal {
+    font-size: 16px;
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23272727' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+    .selectfilterprofilemodal:focus, .selectfilterprofilemodal:hover {
+        font-size: 16px;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-radius: 15px;
+        cursor: pointer;
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.closefilterprofilemodal {
+    color: var(--colorblack);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+    .closefilterprofilemodal:hover {
+        font-size: 30px;
+        color: var(--color7);
+        cursor: pointer;
+    }
+
+.btncancelfilterprofilemodal {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--colorblack);
+    border-color: var(--colorblack);
+    border-radius: 15px;
+    width: 100%;
+}
+
+    .btncancelfilterprofilemodal:focus, .btncancelfilterprofilemodal:hover, .btncancelfilterprofilemodal:active:hover, .btncancelfilterprofilemodal:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color7);
+        border-color: var(--color7);
+        border-radius: 15px;
+        width: 100%;
+    }
+
+.btnokfilterprofilemodal {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--color5);
+    border-color: var(--color5);
+    border-radius: 15px;
+    width: 100%;
+}
+
+    .btnokfilterprofilemodal:focus, .btnokfilterprofilemodal:hover, .btnokfilterprofilemodal:active:hover, .btnokfilterprofilemodal:active:focus {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background-color: var(--color6);
+        border-color: var(--color6);
+        border-radius: 15px;
+        width: 100%;
+    }
+
+.profilemodal {
+    border-radius: 25px;
+}
+
+    .profilemodal div.modal-dialog div.modal-content {
+        border-radius: 25px;
+        background-color: var(--colorwhite);
+    }
+
+.titleprofilemodal {
+    color: var(--colorblack);
+    font-size: 20px;
+}
+
+.closeprofilemodal {
+    color: var(--colorblack);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+    .closeprofilemodal:hover, .closeprofilemodal:active:hover, .closeprofilemodal:active:focus {
+        font-size: 30px;
+        color: var(--color7);
+        cursor: pointer;
+        border-color: var(--nonecolor);
+    }
+
+.labelprofilemodal {
+    font-size: 18px;
+    color: var(--colorblack);
+}
+
+.form-control:disabled, .form-control:disabled:hover {
+    background: var(--colorblack6);
+    border-color: var(--colorblack);
+    cursor: default;
+}
+
+
+.form-select:disabled {
+    background: var(--colorblack6);
+    border-color: var(--colorblack);
+    cursor: default;
+}
+
+
+.selectprofilemodal {
+    font-size: 16px;
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+    border-radius: 15px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23272727' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+    .selectprofilemodal:focus, .selectcreateprofilemodal:hover {
+        font-size: 16px;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-radius: 15px;
+        cursor: pointer;
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.inputprofilemodal {
+    font-size: 16px;
+    color: var(--colorwhite);
+    background-color: var(--colorblack);
+    border-radius: 15px;
+    cursor: text;
+}
+
+    .inputprofilemodal:focus, .inputprofilemodal:hover {
+        font-size: 16px;
+        color: var(--colorwhite);
+        background-color: var(--colorblack);
+        border-radius: 15px;
+        cursor: text;
+        border-color: var(--colorwhite);
+    }
+
+.inputdateprofilemodal {
+    border-radius: 15px;
+    color: var(--colorblack);
+    background-color: var(--colorwhite);
+}
+
+    .inputdateprofilemodal:focus, .inputdateprofilemodal:hover {
+        border-radius: 15px;
+        color: var(--colorblack);
+        background-color: var(--colorwhite);
+        border-color: var(--colorblack);
+        box-shadow: none;
+    }
+
+.textareaprofilemodal {
+    font-size: 16px;
+    color: var(--colorwhite);
+    background-color: var(--colorblack);
+    border-radius: 15px;
+    height: 150px;
+    cursor: text;
+}
+
+    .textareaprofilemodal:focus, .textareprofilemodal:hover {
+        font-size: 16px;
+        color: var(--colorwhite);
+        background-color: var(--colorblack);
+        border-radius: 15px;
+        height: 150px;
+        cursor: text;
+        border-color: var(--colorwhite);
+        box-shadow: none;
+    }
+
+.btncancelprofilemodal {
+    background-color: var(--color7);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btncancelprofilemodal:hover, .btncancelprofilemodal:active:hover, .btncancelprofilemodal:active:focus {
+        background-color: var(--color7);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--colorblack9);
+    }
+
+.btnprofilemodal {
+    background-color: var(--color12);
+    border-radius: 15px;
+    color: var(--colorwhite);
+    width: 120px;
+}
+
+    .btnprofilemodal:hover, .btnprofilemodal:active, .btnprofilemodal:active:hover, .btnprofilemodal:active:focus {
+        background-color: var(--color13);
+        border-radius: 15px;
+        color: var(--colorwhite);
+        width: 120px;
+        border-color: var(--color13);
+    }
+
+.moreavatarbackgroundprofile {
+    border-radius: 15px;
+    border-color: var(--nonecolor);
+}
+
+ul.moreavatarbackgroundprofile li {
+    display: inline;
+}
+
+    ul.moreavatarbackgroundprofile li img {
+        border: 3px solid var(--colorwhite);
+        cursor: pointer;
+    }
+
+        ul.moreavatarbackgroundprofile li img:hover {
+            border: 3px solid var(--colorblack);
+        }
+
+        ul.moreavatarbackgroundprofile li img.hover {
+            border: 3px solid var(--colorblack);
+        }
+
+.moreavatarimgprofile {
+    border-radius: 15px;
+    border-color: var(--nonecolor);
+}
+
+ul.moreavatarimgprofile li {
+    display: inline;
+}
+
+    ul.moreavatarimgprofile li img {
+        border: 3px solid var(--colorwhite);
+        cursor: pointer;
+    }
+
+        ul.moreavatarimgprofile li img:hover {
+            border: 3px solid var(--colorblack);
+        }
+
+        ul.moreavatarimgprofile li img.hover {
+            border: 3px solid var(--colorblack);
+        }
+
+
+
+.iconprofilemodal {
+    color: var(--colorblack8);
+    font-size: 100px;
+}
+
+.labelheadprofilemodal {
+    font-size: 20px;
+    color: var(--colorblack8);
+}
+
+.labeldetailprofilemodal {
+    font-size: 16px;
+    color: var(--colorblack);
+}
+
+/*********** navmenuprofilelayout ***********/
+.navmenuprofilelayout {
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+    .navmenuprofilelayout.active {
+        border-radius: 25px;
+        background-color: var(--colorwhite);
+    }
+
+    .navmenuprofilelayout ul li a.nav-link {
+        color: var(--colorblack);
+        font-size: 20px;
+    }
+
+
+.maxwidthavatarimgprofile {
+    width:max-content
+}
+
+.dropdownavatarbackgroundprofile {
+    border-radius: 25px;
+    border-color: var(--nonecolor);
+    background-color: var(--colorwhite);
+    width: min-content;
+}
+
+.dropdownavatarimgprofile {
+    border-radius: 25px;
+    border-color: var(--nonecolor);
+    background-color: var(--colorwhite);
+    width: min-content;
+}
+
+/*********** media screen website ***********/
+@media (max-width: 511px) {
+    .dropdownavatarimgprofile {
+        border-radius: 25px;
+        border-color: var(--nonecolor);
+        background-color: var(--colorwhite);
+        width: 75vw;
+    }
+
+    .dropdownavatarbackgroundprofile {
+        border-radius: 25px;
+        border-color: var(--nonecolor);
+        background-color: var(--colorwhite);
+        width: 75vw;
+    }
+}
+
+@media (min-width: 512px) {
+    .dropdownavatarimgprofile {
+        border-radius: 25px;
+        border-color: var(--nonecolor);
+        background-color: var(--colorwhite);
+        width: min-content;
+    }
+
+    .dropdownavatarbackgroundprofile {
+        border-radius: 25px;
+        border-color: var(--nonecolor);
+        background-color: var(--colorwhite);
+        width: min-content;
+    }
+}

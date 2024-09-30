@@ -1,0 +1,105 @@
+/**
+ * @license Copyright (c) 2014-2023, CKSource Holding sp. z o.o. All rights reserved.
+ * This file is licensed under the terms of the MIT License (see LICENSE.md).
+ */
+
+:root {
+	--ck-sample-base-spacing: 2em;
+	--ck-sample-color-white: #fff;
+	--ck-sample-color-green: #279863;
+	--ck-sample-color-blue: #1a9aef;
+	--ck-sample-container-width: 1285px;
+	--ck-sample-sidebar-width: 350px;
+	--ck-sample-editor-min-height: 400px;
+	--ck-sample-editor-z-index: 10;
+}
+
+/* --------- EDITOR STYLES  ---------------------------------------------------------------------------------------- */
+
+.editor__editable,
+/* Classic build. */
+main .ck-editor[role='application'] .ck.ck-content,
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+	width: 100%;
+	background-color: var(--colorwhite);
+	font-size: 1em;
+	line-height: 1.6em;
+	padding: 1.5em;
+	padding-top: 0;
+	border-radius: 25px;
+	border-color: var(--nonecolor);
+	box-shadow: 0 0 0 rgba(0,0,0,0);
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: calc(100vh - 350px);
+}
+
+
+.ckeditorcomment .ck-editor .ck.ck-editor__main .ck.ck-editor__editable[role='textbox'] {
+	width: 100%;
+	background-color: var(--color0);
+	font-size: 16px;
+	color: var(--colorgray);
+	line-height: 1.6em;
+	padding: 1em;
+	padding-top: 0;
+	padding-bottom: 2em;
+	border-radius: 15px;
+	border-color: var(--nonecolor);
+	box-shadow: 0 0 0 rgba(0,0,0,0);
+	overflow: hidden;
+	height: 100%;
+	transition: all .35s ease; 
+}
+
+.ckeditoreditcomment .ck-editor .ck.ck-editor__main .ck.ck-editor__editable[role='textbox'] {
+	width: 100%;
+	background-color: var(--color0);
+	font-size: 16px;
+	color: var(--colorgray);
+	line-height: 1.6em;
+	padding: 1em;
+	padding-top: 0;
+	padding-bottom: 2em;
+	border-radius: 15px;
+	border-color: var(--nonecolor);
+	box-shadow: 0 0 0 rgba(0,0,0,0);
+	overflow: hidden;
+	height: 100%;
+	transition: all .35s ease;
+}
+
+.editor__editable.max,
+/* Classic build. */
+main .ck-editor[role='application'] .ck.ck-content.max,
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'].max,
+.ck.ck-editor__editable[role='textbox'].max,
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'].max {
+	width: 100%;
+	background-color: var(--color32);
+	font-size: 1em;
+	line-height: 1.6em;
+	padding: 1.5em;
+	padding-top: 0;
+	border-radius: 25px;
+	border-color: var(--nonecolor);
+	box-shadow: 0 0 0 rgba(0,0,0,0);
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: calc(100vh - 350px);
+}
+
+.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+	border-radius: 25px;
+	border-color: var(--nonecolor);
+	background-color: var(--nonecolor);
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+}
+

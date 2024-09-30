@@ -1,0 +1,43 @@
+﻿:root {
+    --color0: #F5F6FA;
+    --color1: #181A1E;
+    --color2: #F3F4F4; /*Border*/
+    --color3: #929AA3; /*Gray*/
+    --color4: #539CFD;
+    --color5: #F7F7F7;
+    --color6: #8E979F;
+    --color7: #A5ABBF;
+    --color8: #E4E6EB;
+    --color9: #CCCFD4;
+    --color10: #5C6166;
+    --color11: #BCC0C4;
+    --color12: #0D6EFD;
+    --color13: #0A58CA;
+    --color14: #FD6E6E;
+    --color15: #F1F3F8;
+    --color16: #F3F9FD;
+    --color17: #EBF5FF;
+    --color18: #F95E5E;
+    --color19: #5AC396;
+    --color20: #DEE2E6;
+    --colordisabled: #1985FF;
+    --colorlightgray: #D7D7DB;
+    --colorgray: #898890;
+    --colorpink: #EE5DA8;
+    --colorblue: #2F80ED;
+    --colorblack: black;
+    --colorwhite: white;
+    --colorgray: gray;
+    --backgroundcolor: white;
+    --nonecolor: #ffffff00;
+    /*colorbackgroundgroupstatus*/
+    --colorword: #2966FB;
+    --colorexcel: #01A45A;
+    --colorpowerpoint: #EC622A;
+    --colorpdf: #E5263F;
+    --colorimage: #17BDA1;
+    --colorvideo: #B842FB;
+    --colormp3: #707CF6;
+    --colorzip: #FCB91F;
+    --colorfolder: #FCB91F;
+}

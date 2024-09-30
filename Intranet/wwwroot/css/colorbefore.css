@@ -1,0 +1,153 @@
+﻿:root {
+    --color0: white;
+    --color1: #FEFDFF;
+    --color2: #272727;
+    --color3: #F5F7FB;
+    --color4: #9D9EA9;
+    --color5: #0075FF;
+    --color6: #1985FF;
+    --color7: #4E4E4E;
+    --color8: #e9ecef;
+    /*--color8: #5f57ff;*/
+    --color9: #BCBBCD;
+    --color10: #ECECEC; /*purple*/
+    --color11: #FFFBF3; /*yellow*/
+    --color12: #FFF3F3; /*red*/
+    --color13: #F96B6B;
+    --color14: lightgray;
+    --color15: #F6F6FB;
+    --color16: #F9CF6B;
+    --color17: black;
+    --color18: #c6c4c4;
+    --color19: #1C1A57;
+    --color20: #1C1955;
+    --color21: #53E800;
+    --color22: #3F3C5E;
+    --color23: gray;
+    --color24: #F2F3F7;
+    --color25: #F5F7FB;
+    /*----*/
+    --color26: #2B2D2E;
+    --color27: #1d2022;
+    --color28: #79797B;
+    --color29: #4E4E4E;
+    --color30: #0075FF;
+    --color31: #1985FF;
+    --color32: #FFF2F2;
+    --colorblack: black;
+    --colorwhite: white;
+    --backgroundcolor: #F3F3FD;
+    --nonecolor: #ffffff00;
+    /*colorbackgroundgroupstatus*/
+    --colorbackgroundgroup1status1: #A3E0FC;
+    --colorbackgroundgroup1status2: #FFEAB6;
+    --colorbackgroundgroup2status1: #D5C8FB;
+    --colorbackgroundgroup2status2: #B9F4F3;
+    --colorbackgroundgroup2status3: #FFCFB7;
+    --colorbackgroundgroup3status1: #E9B78C;
+    --colorbackgroundgroup3status2: #E9B78C;
+    --colorbackgroundgroup4status1: #D5C8FB;
+    --colorbackgroundgroup4status2: #B9F4F3;
+    --colorbackgroundgroup4status3: #FFCFB7;
+    --colorbackgroundgroup5status1: #BAF8DD;
+    --colorbackgroundgroup6status1: #C5CADA;
+    --colorbackgroundgroup7status1: #FBA7BF;
+    /*colorbackgroundgroupstatus*/
+    --colorexcel: #008B46;
+    --colorpdf: #E35E58;
+    /*colorfontgroupstatus*/
+    --colorfontgroup1status1: #3D8AED;
+    --colorfontgroup1status2: #FEB51F;
+    --colorfontgroup2status1: #6438E0;
+    --colorfontgroup2status2: #0390A9;
+    --colorfontgroup2status3: #F45721;
+    --colorfontgroup3status1: #B74D00;
+    --colorfontgroup3status2: #B74D00;
+    --colorfontgroup4status1: #6438E0;
+    --colorfontgroup4status2: #0390A9;
+    --colorfontgroup4status3: #F45721;
+    --colorfontgroup5status1: #59C894;
+    --colorfontgroup6status1: #373753;
+    --colorfontgroup7status1: #C00839;
+    /*colordarkpastel*/
+    --colordarkpastel1: rgb(255, 220, 116);
+    --colordarkpastel2: rgb(251, 172, 135);
+    --colordarkpastel3: rgb(255, 140, 135);
+    --colordarkpastel4: rgb(243, 166, 200);
+    --colordarkpastel5: rgb(222, 172, 249);
+    --colordarkpastel6: rgb(174, 181, 255);
+    --colordarkpastel7: rgb(149, 200, 243);
+    --colordarkpastel8: rgb(129, 227, 225);
+    --colordarkpastel9: rgb(125, 225, 152);
+    --colordarkpastel10: rgb(179, 229, 97);
+    /*colorlightpastel*/
+    --colorlightpastel1: rgb(251, 248, 204);
+    --colorlightpastel2: rgb(253, 228, 207);
+    --colorlightpastel3: rgb(255, 207, 210);
+    --colorlightpastel4: rgb(241, 192, 232);
+    --colorlightpastel5: rgb(207, 186, 240);
+    --colorlightpastel6: rgb(163, 196, 243);
+    --colorlightpastel7: rgb(144, 219, 244);
+    --colorlightpastel8: rgb(142, 236, 245);
+    --colorlightpastel9: rgb(152, 245, 225);
+    --colorlightpastel10: rgb(185, 251, 192);
+    /*--color0: white;
+    --color1: #1D1956;
+    --color2: #6F6BF9;
+    --color3: #D4D3EE;
+    --color4: #A29FFF;
+    --color5: #AAA9E2;
+    --color6: #F2F2FD;
+    --color7: #8C88F9;
+    --color8: #5f57ff;
+    --color9: #BCBBCD;
+    --color10: #F3F3FF;*/ /*purple*/
+    /*--color11: #FFFBF3;*/ /*yellow*/
+    /*--color12: #FFF3F3;*/ /*red*/
+    /*--color13: #F96B6B;
+    --color14: lightgray;
+    --color15: #F6F6FB;
+    --color16: #F9CF6B;
+    --color17: black;
+    --color18: #c6c4c4;
+    --color19: #1C1A57;
+    --color20: #1C1955;
+    --color21: #53E800;
+    --color22: #3F3C5E;
+    --color23: gray;
+    --color24: #F2F3F7;
+    --color25: #F5F7FB;
+    --backgroundcolor: #F8FAFB;
+    --nonecolor: #ffffff00;*/
+}
+
+/*
+var(--color0);
+var(--color1);
+var(--color2);
+var(--color3);
+var(--color4);
+var(--color5);
+var(--color6);
+var(--color7);
+var(--color8);
+var(--color9);
+var(--color10);
+var(--color11);
+var(--color12);
+var(--color13);
+var(--color14);
+var(--color15);
+var(--color16);
+var(--color17);
+var(--color18);
+var(--color19);
+var(--color20);
+var(--color21);
+var(--color22);
+var(--color23);
+var(--color24);
+var(--color25);
+var(--backgroundcolor);
+var(--nonecolor);
+*/

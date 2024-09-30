@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "การร้องเรียน";
+}
+
+<input type="hidden" id="useridprofile" value="@ViewBag.UserId" />
+
+<div class="p-4 header_complaint">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <i class="bi bi-clipboard-check icon_header_complaint"></i>
+        <label class="labelhead_complaint">แบบฟอร์มการร้องเรียน</label>
+    </div>
+    <div class="text-center mt-2">
+        
+    </div>
+</div>
+
+<div class="p-4 mt-4 complaint">
+    <div>
+        <label class="labelhead_complaint">หัวข้อการร้องเรียน</label>
+        <select class="form-select p-2 mt-3 selectcategorycomplaint_complaint">
+        </select>
+    </div>
+    <div class="mt-4">
+        <label class="labelhead_complaint">รายละเอียด</label>
+    </div>
+    <div class="mt-3 editor_complaint">
+        <div id="Editor_Complaint">
+
+        </div>
+    </div>
+    <div class="mt-3">
+        <button type="button" class="w-100 rounded-pill mt-2 py-2 btn_complaint btnonetime" disabled>ส่งคำร้องเรียน</button>
+    </div>
+</div>
+
+@*SuscessBlogPostModal*@
+<div class="modal fade" id="SuccessBlogPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color:var(--color19);">
+            <div class="modal-body p-2">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="d-flex flex-column">
+                            <i class="bi bi-check-circle emojisuccess_successblogpostmodal"></i>
+                            <label class="headlabelsuccess_successblogpostmodal"></label>
+                            <label class="labelsuccess_successblogpostmodal mt-2"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="border-top:none;">
+                <button type="button" class="shadow rounded-pill mt-2 py-2 px-4 btnsuccess_successblogpostmodal fw-bold">ตกลง</button>
+            </div>
+        </div>
+    </div>
+</div>

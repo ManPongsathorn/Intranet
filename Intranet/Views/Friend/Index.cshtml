@@ -1,0 +1,403 @@
+﻿@model Intranet.ViewModels.UserManageViewModel
+
+@{
+    ViewData["Title"] = "เพื่อน";
+}
+
+<input type="hidden" id="useridprofile" value="@ViewBag.UserId" />
+
+<div class="mt-2 d-flex align-items-center p-4" style="background-color:var(--colorwhite);border-radius:25px;">
+    <div class="input-group">
+        <i class="bi bi-search ps-4 position-absolute filtericonsearchusermanage" style="z-index:2;padding-top:0.8rem;"></i>
+        <input type="search" class="form-control text-nowrap shadow-none filtersearchusermanage" placeholder="ค้นหา" style="z-index: 1;border-radius: 15px;" id="SearchUserManage">
+    </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="ms-3">
+            <button class="btn filtercreateusermanage py-2 text-nowrap" type="button" data-bs-toggle="modal" data-bs-target="#CreateUserManageModal">สร้างบัญชีผู้ใช้</button>
+        </div>
+    }
+</div>
+
+<div class="table-responsive p-0">
+    <table class="table table-borderless table_friend align-middle text-start" style="border-collapse:separate;border-spacing: 0 1em;" id="TableUserManage">
+        <thead class="text-center">
+            <tr>
+                <th>
+                    <label class="text-nowrap">#</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ชื่อบัญชีผู้ใช้</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ชื่อ-นามสกุล ภาษาอังกฤษ</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ชื่อ-นามสกุล ภาษาไทย</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ชื่อเล่น</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">สถานที่ทำงาน</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ฝ่าย 1</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ฝ่าย 2</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">แผนก</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">สาขา</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">ตำแหน่ง</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">สิทธิ์</label>
+                </th>
+                <th>
+                    <label class="text-nowrap">สถานะบัญชีผู้ใช้</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @{
+                var usermanageCount = 1;
+
+                @foreach (var item in Model.UserRoleViewModelsList)
+                {
+                    <tr>
+                        <td>
+                            <label class="labeldetail_friend">@usermanageCount</label>
+                        </td>
+                        <td>
+                            @if (item.UserName != null)
+                            {
+                                <a class="labelaction_friend fw-bold d-flex align-items-center" asp-action="Profile" asp-controller="Account" asp-route-id="@item.Id">
+                                    @if (item.ImageUser != null)
+                                    {
+                                        <img class="profile_friend me-3" src="@Url.Content("~/Image/users/profile/" + item.ImageUser)" />
+                                    }
+                                    else
+                                    {
+                                        <img class="profile_friend me-3" src="@Url.Content("~/Image/users/profile/" + "ProfileUser_None.jpg")" />
+                                    }
+                                    @item.UserName
+                                </a>
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.FirstNameEN != null && item.LastNameEN != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.FirstNameEN @item.LastNameEN</label>
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap"></label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.FirstNameTH != null && item.LastNameTH != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.FirstNameTH @item.LastNameTH</label>
+
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.NickName != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.NickName</label>
+
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Position != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.Position.Section.Department1!.Location.Name</label>
+
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Position != null)
+                            {
+                                if (item.Position.Section.Department1 != null)
+                                {
+                                    <label class="labeldetail_friend text-nowrap">@item.Position.Section.Department1.Name</label>
+                                }
+                                else
+                                {
+                                    <label class="labeldetail_friend text-nowrap">-</label>
+                                }
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Position != null)
+                            {
+                                if (item.Position.Section.Department2 != null)
+                                {
+                                    <label class="labeldetail_friend text-nowrap">@item.Position.Section.Department2.Name</label>
+                                }
+                                else
+                                {
+                                    <label class="labeldetail_friend text-nowrap">-</label>
+                                }
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Position != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.Position.Section.Name</label>
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Shop != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.Shop.Branch : @item.Shop.Name</label>
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Position != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@item.Position.Name</label>
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Roles != null)
+                            {
+                                <label class="labeldetail_friend text-nowrap">@string.Join(",", item.Roles.ToList())</label>
+
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">-</label>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Active == true)
+                            {
+                                <label class="labeldetail_friend text-nowrap">ใช้งาน</label>
+
+                            }
+                            else
+                            {
+                                <label class="labeldetail_friend text-nowrap">ไม่ใช้งาน</label>
+                            }
+                        </td>
+                    </tr>
+                    usermanageCount++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@*--**********CreateUserManageModal**********--*@
+<div class="modal fade usermanagemodal" id="CreateUserManageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content p-3">
+            <div class="modal-header ps-0">
+                <label class="modal-title fw-bold titleusermanagemodal">สร้างบัญชีผู้ใช้</label>
+                <button type="button" class="btn fw-bold closeusermanagemodal" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-circle"></i></button>
+            </div>
+            <form class="formcreateformusermanage" asp-controller="Friend" asp-action="CreateUser" method="post" enctype="multipart/form-data">
+                <div class="modal-body ps-0 pe-0">
+                    <div class="mt-3">
+                        <div class="form-check form-switch ps-0 mt-2 d-flex justify-content-between align-items-center">
+                            <label class="labelusermanagemodal fw-bold">อัพโหลดไฟล์ Excel</label>
+                            <input class="form-check-input" type="checkbox" id="SwitchExcelCreateUserManage" style="width:50px;height:25px;">
+                        </div>
+                    </div>
+                    <div class="mt-3 inputExcelCreateUserManage" hidden>
+                        <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal" name="FileCreateUser" type="file" />
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">อีเมลผู้ใช้</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.UserName" type="email" placeholder="กรุณาใส่อีเมล" required>
+                        </div>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">รหัสพนักงาน</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.EmployeeId" type="text" placeholder="กรุณาใส่รหัสพนักงาน" required>
+                        </div>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">ชื่อ ภาษาอังกฤษ</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.FirstNameEN" type="text" placeholder="กรุณาใส่ชื่อ ภาษาอังกฤษ" required>
+                        </div>
+                        <div class="col inputCreateUserManage">
+                            <label class="labelusermanagemodal fw-bold">นามสกุล ภาษาอังกฤษ</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.LastNameEN" type="text" placeholder="กรุณาใส่นามสกุล ภาษาอังกฤษ" required>
+                        </div>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">ชื่อ ภาษาไทย</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.FirstNameTH" type="text" placeholder="กรุณาใส่ชื่อ ภาษาไทย" required>
+                        </div>
+                        <div class="col inputCreateUserManage">
+                            <label class="labelusermanagemodal fw-bold">นามสกุล ภาษาไทย</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.LastNameTH" type="text" placeholder="กรุณาใส่นามสกุล ภาษาไทย" required>
+                        </div>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">ชื่อเล่น</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.NickName" type="text" placeholder="กรุณาใส่ชื่อเล่น">
+                        </div>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">เบอร์โทรศัพท์ภายใน</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.InternalPhoneNumber" type="text" placeholder="กรุณาใส่เบอร์โทรศัพท์ภายใน">
+                        </div>
+                        <div class="col inputCreateUserManage">
+                            <label class="labelusermanagemodal fw-bold">เบอร์โทรศัพท์</label>
+                            <input class="form-control p-2 mt-3 d-block inputdateusermanagemodal inputCreateUserManage" asp-for="UserRoleViewModel.PhoneNumber" type="text" placeholder="กรุณาใส่เบอร์โทรศัพท์">
+                        </div>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col">
+                            <label class="labelusermanagemodal fw-bold">ฝ่าย 1</label>
+                            <select asp-items="ViewBag.Department1sList" class="form-select p-2 mt-3 selectusermanagemodal SelectCreateDepartment1UserManage inputCreateUserManage" aria-label="Default select example" required>
+                                <option value="">เลือกฝ่าย 1</option>
+                            </select>
+                        </div>
+                        <div class="col SelectCreateDepartment2UserManage" hidden>
+                            <label class="labelusermanagemodal fw-bold">ฝ่าย 2</label>
+                            <select asp-items="ViewBag.Department2sList" class="form-select p-2 mt-3 selectusermanagemodal inputCreateUserManage" aria-label="Default select example" required disabled>
+                                <option value="">เลือกฝ่าย 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-3 SelectCreateSectionUserManage inputCreateUserManage" hidden>
+                        <label class="labelusermanagemodal fw-bold">แผนก</label>
+                        <select asp-items="ViewBag.SectionsList" class="form-select p-2 mt-3 selectusermanagemodal inputCreateUserManage" aria-label="Default select example" required>
+                            <option value="">เลือกแผนก</option>
+                        </select>
+                    </div>
+                    <div class="row mt-3 inputCreateUserManage">
+                        <div class="col SelectCreateShopUserManage" hidden>
+                            <label class="labelusermanagemodal fw-bold">สาขา</label>
+                            <select asp-items="ViewBag.Form1RequirementsList" asp-for="UserRoleViewModel.ShopId" class="form-select p-2 mt-3 selectusermanagemodal inputCreateUserManage" aria-label="Default select example" required>
+                                <option value="">เลือกสาขา</option>
+                            </select>
+                        </div>
+
+                        <div class="col SelectCreatePositionUserManage" hidden>
+                            <label class="labelusermanagemodal fw-bold">ตำแหน่ง</label>
+                            <select asp-items="ViewBag.Form1DevicesList" asp-for="UserRoleViewModel.PositionId" class="form-select p-2 mt-3 selectusermanagemodal inputCreateUserManage" aria-label="Default select example" required>
+                                <option value="">เลือกตำแหน่ง</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-3 inputCreateUserManage">
+                        <label class="labelusermanagemodal fw-bold">สิทธิ์</label>
+                        <select asp-items="Model.SelectRoles" asp-for="UserRoleViewModel.NewRole" class="form-select p-2 mt-3 selectusermanagemodal inputCreateUserManage" aria-label="Default select example" required>
+                            <option value="">เลือกสิทธิ์</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn p-2 ms-2 btncancelusermanagemodal" type="button" data-bs-dismiss="modal">ย้อนกลับ</button>
+                    <button class="btn p-2 ms-2 btnusermanagemodal btnformcreateformusermanage" type="submit">สร้าง</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@*--**********ErrorUserManageModal**********--*@
+@if (ViewBag.ErrorUserManage == "Error")
+{
+    <div class="modal fade usermanagemodal" id="ErrorUserManageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ErrorUserManageModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="bi bi-exclamation-circle iconerrorusermanagemodal rounded-circle"></i>
+                    </div>
+                    <div class="mt-0 text-center">
+                        @if (ViewBag.ErrorTextUserManage == "ErrorUserEmail")
+                        {
+                            <label class="labelerrorusermanagemodal fw-bold">อีเมลซ้ำ</label>
+                        }
+                        else if (ViewBag.ErrorTextUserManage == "ErrorCreateUserExcel")
+                        {
+                            <label class="labelerrorusermanagemodal fw-bold">สร้างบัญชีผู้ใช้ (Excel)</label>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <div class="mt-3 text-center">
+                        @if (ViewBag.ErrorTextUserManage == "ErrorUserEmail")
+                        {
+                            <label class="labelusermanagemodal">เนื่องจากอีเมลซ้ำกับในระบบ</label>
+                            <br />
+                            <label class="labelusermanagemodal">กรุณาตรวจสอบอีกครั้ง</label>
+                        }
+                        else if (ViewBag.ErrorTextUserManage == "ErrorCreateUserExcel")
+                        {
+                            <label class="labelusermanagemodal">จำนวนบัญชีผู้ใช้ (Excel) ทั้้งหมด <b>@ViewBag.ErrorCreateExcelCountUserManage</b> รายการ</label>
+                            <br />
+                            <label class="labelusermanagemodal">นำเข้าระบบสำเร็จทั้งหมด <b>@ViewBag.ErrorCreateExcelSystemCountUserManage</b> รายการ</label>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                </div>
+                <div class="text-center mt-3 mb-3">
+                    <button class="btn p-2 ms-2 btnerrorusermanagemodal" type="button" data-bs-dismiss="modal">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

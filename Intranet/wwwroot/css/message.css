@@ -1,0 +1,257 @@
+﻿/*CardMessage*/
+
+.cardmessage {
+    background-color: var(--colorwhite);
+    border-color: var( --nonecolor);
+    border-radius: 25px;
+    margin-top: 70px;
+}
+
+.newcardmessage {
+    background-color: var(--colorwhite);
+    border-color: var( --nonecolor);
+    border-radius: 25px;
+    height: calc(100vh - 108px);
+}
+
+.iconnewmessage {
+    color: var(--color14);
+    font-size: 12vh;
+}
+
+.labelnewmessage{
+    color: var(--color14);
+    font-size: 18px;
+}
+
+.imageheadmessage {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.labelheadusernamemessage {
+    color: var(--color2);
+    font-size: 18px;
+}
+
+
+.statusactivemessage {
+    color: var(--color21);
+    font-size: 10px;
+}
+
+.statusinactivemessage {
+    color: var(--color14);
+    font-size: 10px;
+}
+
+.labelstatusmessage {
+    color: var(--color23);
+    font-size: 16px;
+}
+
+.labeldatetimemessage {
+    color: var(--color23);
+    font-size: 16px;
+}
+
+.filtericonsearchmessage {
+    color: var(--color2);
+}
+
+.filtersearchmessage {
+    font-size: 16px;
+    text-indent: 40px;
+    background-color: var(--nonecolor);
+    border-color: var(--color14);
+    padding: 0.75rem;
+    margin-top: -1px;
+    margin-bottom: -1px;
+}
+
+    .filtersearchmessage:focus, .filtersearchmessage:hover {
+        font-size: 16px;
+        text-indent: 40px;
+        background-color: var(--nonecolor);
+        border-color: var(--color2);
+        padding: 0.75rem;
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+.mytextmessage {
+    color: var(--colorwhite);
+    font-size: 16px;
+    background-color: var(--color2);
+    border-radius: 25px 0px 25px 25px;
+    max-width: 600px;
+}
+
+.yourtextmessage {
+    color: var(--color2);
+    font-size: 16px;
+    background-color: var(--color24);
+    border-radius: 0px 25px 25px 25px;
+    max-width: 600px;
+}
+
+.inputmessage {
+    font-size: 16px;
+    border-radius: 15px;
+    color: var(--color2);
+    background-color: var(--colorwhite);
+    cursor: text;
+}
+
+    .inputmessage:focus, .inputmessage:hover {
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: text;
+        color: var(--color2);
+        background-color: var(--colorwhite);
+        border-color: var(--color2);
+        box-shadow: none;
+    }
+
+.sendmessage {
+    color: var(--color2);
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+    margin-right: 2rem;
+    font-size: 24px;
+}
+
+.messagesList {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 300px);
+}
+
+.todaymessage {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--color14);
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+    .todaymessage span {
+        color: var(--colorwhite);
+        font-size: 16px;
+        background: var(--color14);
+        padding: 5px 18px;
+        border-radius:25px;
+    }
+
+.createmessage {
+    color: var(--color2);
+    font-size: 50px;
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+}
+
+    .createmessage:focus, .createmessage:hover, .createmessage:active.active, .createmessage:active:hover, .createmessage:active:hover {
+        color: var(--color2);
+        font-size: 50px;
+        background-color: var(--nonecolor);
+        border-color: var(--nonecolor);
+    }
+
+.dropdownnewmessage {
+    border-color: var(--nonecolor);
+    border-radius: 25px;
+}
+
+
+/*ListMessage*/
+.imagelistmessage {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+
+.listlabelheadmessage {
+    color: var(--color2);
+    font-size: 16px;
+}
+
+.listlabelheaddatemessage {
+    color: var(--color2);
+    font-size: 14px;
+}
+
+/*.listlabelheaddatenewmessage {
+    color: var(--color2);
+    font-size: 14px;
+}*/
+
+.listtextmessage {
+    color: var(--color2);
+    font-size: 14px;
+}
+
+
+.listbuttonmessage {
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+}
+
+    .listbuttonmessage:hover, .listbuttonmessage.active {
+        background-color: var(--colorwhite);
+        border-color: var(--colorwhite);
+        box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+        border-radius:15px;
+    }
+
+.listbuttonnewmessage {
+    background-color: var(--nonecolor);
+    border-color: var(--nonecolor);
+    border-radius: 15px;
+    color: var(--color2);
+    width: max-content;
+}
+
+    .listbuttonnewmessage:hover, .listbuttonnewmessage.active {
+        color: var(--color2);
+        background-color: var(--nonecolor);
+        border-color: var(--nonecolor);
+        box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+        border-radius: 15px;
+        width: max-content;
+    }
+
+.notificationmessage {
+    color: var(--colorwhite);
+    font-size: 14px;
+    background-color: var(--color2);
+}
+
+
+
+.liststatusactivemessage {
+    color: var(--color21);
+    font-size: 8px;
+}
+
+.liststatusinactivemessage {
+    color: var(--color14);
+    font-size: 8px;
+}
+
+.listgroupmessage {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 205px);
+}
+
+
+.listnewmessage {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 500px);
+}

@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = ViewData["Title"];
+}
+<input type="hidden" id="useridprofile" value="@ViewBag.UserId" />
+
+<div class="blogpostfeed"></div>
+
+@*CreateBlogPostModal*@
+<div class="modal fade blogpostmodal" id="CreateBlogPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <label class="modal-title title_blogpostmodal fw-bold">สร้างโพสต์</label>
+                <button type="button" class="btn close_blogpostmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-row align-items-center">
+                    @if (ViewBag.ImageProfileUesr != null)
+                    {
+                        <img class="userimageprofile_blogpostmodal" src="/Image/users/profile/@ViewBag.ImageProfileUesr" />
+                    }
+                    else
+                    {
+                        <img class="userimageprofile_blogpostmodal" src="/Image/users/profile/ProfileUser_None.jpg" />
+                    }
+                    <div class="ms-2 d-flex flex-column">
+                        <label class="usernameprofile_blogpostmodal fw-bold">@ViewBag.UserName</label>
+                        <button class="btn btn_menugroup_blogpostmodal mt-1 py-1"><i class="bi bi-house me-2"></i>@ViewData["Title"]</button>
+                    </div>
+                </div>
+                <div class="mt-3 documenteditor">
+                    <div class="mt-3" id="Editor_Blogpost"></div>
+                </div>
+                <button type="button" class="btn viewimagevideoall_blogpostmodal position-absolute px-3 py-2 mt-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#ViewImageVideoAllBlogPost" hidden><i class="bi bi-images me-2"></i><span>รูปภาพ/วิดีโอ ทั้งหมด</span></button>
+                <button type="button" class="btn closeimagevideo_blogpostmodal position-absolute end-0 px-2 py-1 mt-3" hidden><i class="bi bi-x-lg"></i></button>
+                <div class="listpreviewimagevideo_blogpostmodal p-2" hidden></div>
+            </div>
+            <div class="modal-footer pt-0" style="border-top:none;">
+                <div class="d-flex justify-content-around align-items-center w-100 px-1 py-2 miniaction_blogpostmodal">
+                    <button class="actionimagevideo_blogpostmodal d-flex align-items-center justify-content-center">
+                        <i class="bi bi-image me-2"></i>
+                        <span class="labelcursor_blogpost">รูปภาพ / วิดีโอ</span>
+                    </button>
+                    <input type="file" class="form-control uploadimagevideofile_blogpostmodal" accept="image/png, image/jpeg, video/mp4" multiple hidden />
+                </div>
+                <button type="button" class="w-100 rounded-pill mt-2 py-2 btn_post_blogpost btnonetime" disabled>โพสต์</button>
+                <input type="hidden" id="editpostid"/>
+                <input type="hidden" id="mediapostvalue" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@*ViewImageVideoAllBlogPostModal*@
+<div class="modal fade" id="ViewImageVideoAllBlogPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <button type="button" class="btn close_blogpostmodal position-absolute start-0 ms-3 px-2 py-1" data-bs-toggle="modal" data-bs-target="#CreateBlogPost"><i class="bi bi-arrow-left"></i></button>
+                <label class="modal-title title_blogpostmodal fw-bold">รูปภาพ/วิดีโอ ทั้งหมด</label>
+            </div>
+            <div class="modal-body p-2" style="background-color:var(--color8);border-radius:0px 0px 25px 25px">
+            </div>
+        </div>
+    </div>
+</div>
+
+@*ViewImageVideoModal*@
+<div class="modal fade overflow-hidden" id="ViewImageVideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl ratio">
+        <div class="carousel_bg_blogpost"></div>
+        <div class="modal-content position-relative" style="background-color: rgb(255 255 255 / 0.00);border-radius:25px;border: none">
+            <div class="modal-body">
+                <div id="carouselviewimagevideo" class="carousel slide">
+                    <div class="carousel-inner text-center">
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselviewimagevideo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselviewimagevideo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*ViewLikeBlogPostModal*@
+<div class="modal fade blogpostmodal" id="ViewLikeBlogPost" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header pb-0" style="border-bottom:none;">
+                <div class="d-flex px-3 py-2 likelabel_blogpostmodal">
+                    <i class="bi bi-heart-fill me-2"></i>
+                    <span></span>
+                </div>
+                <button type="button" class="btn close_blogpostmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body ListLikeBlogPost p-0 pt-3" style="overflow-x: hidden;height: calc(100vh - 600px);">                
+            </div>
+        </div>
+    </div>
+</div>
+
+@*ErrorBlogPostModal*@
+<div class="modal fade" id="ErrorBlogPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color:var(--color14);">
+            <div class="modal-body p-2">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="d-flex flex-column">
+                            <i class="bi bi-exclamation-circle emojierror_errorblogpostmodal"></i>
+                            <label class="headlabelerror_errorblogpostmodal"></label>
+                            <label class="labelerror_errorblogpostmodal mt-2"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="border-top:none;">
+                <button type="button" class="shadow rounded-pill mt-2 py-2 px-4 btnerror_errorblogpostmodal fw-bold" data-bs-toggle="modal" data-bs-target="#CreateBlogPost">ลองอีกครั้ง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*DeleteBlogPostModal*@
+<div class="modal fade" id="DeleteBlogPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <label class="modal-title title_blogpostmodal fw-bold">คุณต้องการลบโพสต์ใช่ไหม</label>
+                <button type="button" class="btn close_blogpostmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body p-2">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="d-flex flex-column">
+                            <i class="bi bi-trash icondelete_deleteblogpostmodal"></i>
+                            <label class="labeldelete_deleteblogpostmodal mb-3">คุณต้องการลบโพสต์นี้ใช่หรือไม่</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="border-top:none;">
+                <button type="button" class="rounded-pill mt-2 py-2 px-5 btncancel_deleteblogpostmodal fw-bold" data-bs-dismiss="modal" aria-label="Close">ไม่ใช่</button>
+                <button type="button" class="rounded-pill mt-2 py-2 px-5 btndsubmit_deleteblogpostmodal fw-bold btnonetime" data-bs-dismiss="modal" aria-label="Close">ลบ</button>
+                <input type="hidden" id="deletepostid" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@*DeleteCommentBlogPost*@
+<div class="modal fade" id="DeleteCommentBlogPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <label class="modal-title title_blogpostmodal fw-bold">คุณต้องการลบความคิดเห็นใช่ไหม</label>
+                <button type="button" class="btn close_blogpostmodal position-absolute end-0 me-3 px-2 py-1" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body p-2">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="d-flex flex-column">
+                            <i class="bi bi-trash icondelete_commentblogpostmodal"></i>
+                            <label class="labeldelete_commentblogpostmodal mb-3">คุณต้องการความคิดเห็นนี้ใช่หรือไม่</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="border-top:none;">
+                <button type="button" class="rounded-pill mt-2 py-2 px-5 btncancel_deletecommentblogpostmodal fw-bold" data-bs-dismiss="modal" aria-label="Close">ไม่ใช่</button>
+                <button type="button" class="rounded-pill mt-2 py-2 px-5 btndsubmit_deletecommentblogpostmodal fw-bold btnonetime" data-bs-dismiss="modal" aria-label="Close">ลบ</button>
+                <input type="hidden" id="deletecommentid" />
+            </div>
+        </div>
+    </div>
+</div>
